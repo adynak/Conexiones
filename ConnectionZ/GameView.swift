@@ -90,50 +90,6 @@ struct CompletedGroups: View {
     }
 }
 
-struct GuessView: View {
-    let i: Int
-    let guess: Guess
-    
-    var icon: String {
-        if guess.score == 4 {
-            return "4.square.fill"
-        } else if guess.score == 3 {
-            return "3.square"
-        } else {
-            return "square"
-        }
-    }
-    
-    var body: some View {
-        GridRow {
-            Label(guess.words.sorted().joined(separator: ", "), systemImage: icon)
-        }
-    }
-}
-
-struct GuessesView: View {
-    var guesses: [Guess]
-    var body: some View {
-        Text("Guesses").font(.title3)
-        ScrollView {
-            Grid(alignment: .leading) {
-                ForEach(Array(guesses.enumerated()), id: \.offset) {
-                    i, guess in
-                    GuessView(i: i, guess: guess)
-                }
-            }.padding()
-        }
-        .defaultScrollAnchor(.bottom)
-        .frame(maxWidth: 500, maxHeight: .infinity)
-        .background(
-            RoundedRectangle(
-                cornerSize: CGSize(width: 10, height: 10)
-            )
-            .fill(Color.secondaryBackground)
-        )
-    }
-}
-
 struct GameView: View {
     let cols = [
         GridItem(.flexible(), spacing: 8),
@@ -161,12 +117,12 @@ struct GameView: View {
         let guessSelection = NSLocalizedString("GuessSelection",comment: "button: guess selection")
         let guessTopRow = NSLocalizedString("GuessTopRow",comment: "button guess top row")
         
-        return selected.count == 4 ? "Guess Selection" : "Guess Top Row"
+        return selected.count == 4 ? guessSelection : guessTopRow
     }
     
     var body: some View {
         VStack {
-            GuessesView(guesses: game.guesses)
+            GuessHistory(guesses: game.guesses)
             if game.isComplete {
                 Text("Complete!").font(.title2)
             } else {
@@ -190,11 +146,6 @@ struct GameView: View {
             HStack {
                 if game.isComplete {
                     Spacer()
-                    Button("Copy Results") {
-                        copyToClipboard(game.emojis)
-                        Toast.copied()
-                    }.buttonStyle(.bordered)
-                    Spacer()
                     Button("Reset Game") {
                         shouldShowConfirmationDialog = true
                     }.buttonStyle(.bordered)
@@ -204,7 +155,8 @@ struct GameView: View {
                         ) {
                             Button("Reset Game", role: .destructive) {
                                 game.reset()
-                            }.keyboardShortcut(.defaultAction)
+                            }
+                            .keyboardShortcut(.defaultAction)
                             Button("Cancel", role: .cancel, action: {})
                                 .keyboardShortcut(.cancelAction)
                         }
@@ -214,15 +166,15 @@ struct GameView: View {
                     Button("Deselect All") {
                         selected.removeAll()
                     }.buttonStyle(.bordered)
-                    Spacer()
-                    Button("Hoist") {
-                        withAnimation {
-                            game.hoist(words: selected)
-                        }
-                        withAnimation {
-                            selected.removeAll()
-                        }
-                    }.buttonStyle(.bordered)
+                    //                    Spacer()
+                    //                    Button("Hoist") {
+                    //                        withAnimation {
+                    //                            game.hoist(words: selected)
+                    //                        }
+                    //                        withAnimation {
+                    //                            selected.removeAll()
+                    //                        }
+                    //                    }.buttonStyle(.bordered)
                     Spacer()
                     Button(guessButtonText) {
                         withAnimation {
@@ -254,11 +206,12 @@ struct GameView: View {
 #Preview {
     let gameData = GameData(json: "{\"id\":151,\"groups\":{\"DOCTORS’ ORDERS\":{\"level\":0,\"members\":[\"DIET\",\"EXERCISE\",\"FRESH AIR\",\"SLEEP\"]},\"EMAIL ACTIONS\":{\"level\":1,\"members\":[\"COMPOSE\",\"FORWARD\",\"REPLY ALL\",\"SEND\"]},\"PODCASTS\":{\"level\":2,\"members\":[\"RADIOLAB\",\"SERIAL\",\"UP FIRST\",\"WTF\"]},\"___ COMEDY\":{\"level\":3,\"members\":[\"BLACK\",\"DIVINE\",\"PROP\",\"SKETCH\"]}},\"startingGroups\":[[\"COMPOSE\",\"DIVINE\",\"EXERCISE\",\"SEND\"],[\"FRESH AIR\",\"FORWARD\",\"SERIAL\",\"SKETCH\"],[\"WTF\",\"PROP\",\"UP FIRST\",\"DIET\"],[\"BLACK\",\"RADIOLAB\",\"SLEEP\",\"REPLY ALL\"]]}")
     let game = Game(from: gameData, on: "2023-09-09")
-    //  game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]))
-    //  game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "REPLY ALL"]))
-    //  game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "SERIAL"]))
-    //  game.guess(words: Set(["FORWARD", "COMPOSE", "REPLY ALL", "SEND"]))
-    //  game.guess(words: Set(["DIVINE", "PROP", "BLACK", "SKETCH"]))
-    //  game.guess(words: Set(["EXERCISE", "FRESH AIR", "DIET", "SLEEP"]))
-    return GameView(game: game).frame(width: 300, height: 600)
+      game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]))
+      game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "REPLY ALL"]))
+      game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "SERIAL"]))
+      game.guess(words: Set(["FORWARD", "COMPOSE", "REPLY ALL", "SEND"]))
+//      game.guess(words: Set(["DIVINE", "PROP", "BLACK", "SKETCH"]))
+//      game.guess(words: Set(["EXERCISE", "FRESH AIR", "DIET", "SLEEP"]))
+    return GameView(game: game)
+//        .frame(width: 300, height: 600)
 }

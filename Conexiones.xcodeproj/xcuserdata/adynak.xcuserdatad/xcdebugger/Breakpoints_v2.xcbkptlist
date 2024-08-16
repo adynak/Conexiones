@@ -18,6 +18,64 @@
             endingLineNumber = "15"
             landmarkName = "fetchBy(date:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "27B797C5-4551-45CE-AE78-FB341C7E8C2B - 70488175725e48f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for static ConnectionZ.ConnectionsApi.fetchBy(date: Swift.String) async -&gt; Swift.Optional&lt;ConnectionZ.GameData&gt;"
+                  moduleName = "ConnectionZ.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adynak/xcode/Conexiones/ConnectionZ/ConnectionsApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15">
+               </Location>
+               <Location
+                  uuid = "27B797C5-4551-45CE-AE78-FB341C7E8C2B - fbb2ccfa3e10c5ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for static ConnectionZ.ConnectionsApi.fetchBy(date: Swift.String) async -&gt; Swift.Optional&lt;ConnectionZ.GameData&gt;"
+                  moduleName = "ConnectionZ.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adynak/xcode/Conexiones/ConnectionZ/ConnectionsApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15">
+               </Location>
+               <Location
+                  uuid = "27B797C5-4551-45CE-AE78-FB341C7E8C2B - 7a4d79c38050ce9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for static ConnectionZ.ConnectionsApi.fetchBy(date: Swift.String) async -&gt; Swift.Optional&lt;ConnectionZ.GameData&gt;"
+                  moduleName = "ConnectionZ.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adynak/xcode/Conexiones/ConnectionZ/ConnectionsApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15">
+               </Location>
+               <Location
+                  uuid = "27B797C5-4551-45CE-AE78-FB341C7E8C2B - 256cd4fa5286ee8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for static ConnectionZ.ConnectionsApi.fetchBy(date: Swift.String) async -&gt; Swift.Optional&lt;ConnectionZ.GameData&gt;"
+                  moduleName = "ConnectionZ.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adynak/xcode/Conexiones/ConnectionZ/ConnectionsApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

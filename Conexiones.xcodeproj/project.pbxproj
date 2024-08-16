@@ -24,6 +24,8 @@
 		51D1B2F82B0F04E40033BD25 /* GameGroupingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D1B2F72B0F04E40033BD25 /* GameGroupingView.swift */; };
 		51E549D32BA660B300A43D10 /* ConnectionZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E549D22BA660B300A43D10 /* ConnectionZTests.swift */; };
 		92AFDCE12C6FCFA600A39901 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 92AFDCE02C6FCFA600A39901 /* Localizable.xcstrings */; };
+		92AFDCE42C6FDCB600A39901 /* GuessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFDCE32C6FDCB600A39901 /* GuessView.swift */; };
+		92AFDCE62C6FDD4000A39901 /* GuessHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFDCE52C6FDD4000A39901 /* GuessHistory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		51E549D02BA660B300A43D10 /* ConnectionZTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectionZTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51E549D22BA660B300A43D10 /* ConnectionZTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionZTests.swift; sourceTree = "<group>"; };
 		92AFDCE02C6FCFA600A39901 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		92AFDCE32C6FDCB600A39901 /* GuessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessView.swift; sourceTree = "<group>"; };
+		92AFDCE52C6FDD4000A39901 /* GuessHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 		512C38212AFCA51E0072D104 /* ConnectionZ */ = {
 			isa = PBXGroup;
 			children = (
+				92AFDCE22C6FDC9900A39901 /* Views */,
 				51D1B2F12B0E8B4B0033BD25 /* GameData.swift */,
 				514644D72B8BFF1D007523B8 /* Toast.swift */,
 				5154EAC52AFF089E007C24B2 /* Game.swift */,
@@ -132,6 +137,15 @@
 				51E549D22BA660B300A43D10 /* ConnectionZTests.swift */,
 			);
 			path = ConnectionZTests;
+			sourceTree = "<group>";
+		};
+		92AFDCE22C6FDC9900A39901 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				92AFDCE32C6FDCB600A39901 /* GuessView.swift */,
+				92AFDCE52C6FDD4000A39901 /* GuessHistory.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,7 +197,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					512C381E2AFCA51E0072D104 = {
 						CreatedOnToolsVersion = 15.0.1;
@@ -246,11 +260,13 @@
 				514644D82B8BFF1D007523B8 /* Toast.swift in Sources */,
 				51D1B2F82B0F04E40033BD25 /* GameGroupingView.swift in Sources */,
 				51D1B2F42B0E8FE00033BD25 /* Dates.swift in Sources */,
+				92AFDCE62C6FDD4000A39901 /* GuessHistory.swift in Sources */,
 				5154EAC42AFEF65F007C24B2 /* ConnectionsApi.swift in Sources */,
 				511E55332B05DB7C003743F5 /* Clipboard.swift in Sources */,
 				5136EE692B1EEF71004BFCAC /* Color.swift in Sources */,
 				5154EAC62AFF089E007C24B2 /* Game.swift in Sources */,
 				512C38252AFCA51E0072D104 /* ContentView.swift in Sources */,
+				92AFDCE42C6FDCB600A39901 /* GuessView.swift in Sources */,
 				512C38232AFCA51E0072D104 /* ConnectionZApp.swift in Sources */,
 				51D1B2F22B0E8B4B0033BD25 /* GameData.swift in Sources */,
 				5154EAC82AFFECAD007C24B2 /* GameView.swift in Sources */,
@@ -281,6 +297,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -310,6 +327,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -344,6 +362,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -373,6 +392,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -403,9 +423,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"ConnectionZ/Preview Content\"";
 				DEVELOPMENT_TEAM = AFD89X85F4;
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ConnectionZ/Info.plist;
@@ -444,9 +465,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"ConnectionZ/Preview Content\"";
 				DEVELOPMENT_TEAM = AFD89X85F4;
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ConnectionZ/Info.plist;
@@ -482,6 +504,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = AFD89X85F4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -501,6 +524,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = AFD89X85F4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;

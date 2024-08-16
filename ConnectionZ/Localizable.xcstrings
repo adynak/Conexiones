@@ -52,9 +52,6 @@
         }
       }
     },
-    "Copy Results" : {
-
-    },
     "Create four groups of four!" : {
       "localizations" : {
         "es" : {
@@ -116,9 +113,6 @@
           }
         }
       }
-    },
-    "Hoist" : {
-
     },
     "Puzzle" : {
       "comment" : "label Puzzle",

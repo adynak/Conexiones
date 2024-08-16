@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct GuessView: View {
+    let i: Int
+    let guess: Guess
+    
+    var icon: String {
+        if guess.score == 4 {
+            return "4.square.fill"
+        } else if guess.score == 3 {
+            return "3.square"
+        } else {
+            return "square"
+        }
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GridRow {
+            Label(guess.words.sorted().joined(separator: ", "), systemImage: icon)
+        }
     }
 }
 
-#Preview {
-    GuessView()
-}
+//#Preview {
+//    GuessView(i: 1, guess: <#Guess#>)
+//}
