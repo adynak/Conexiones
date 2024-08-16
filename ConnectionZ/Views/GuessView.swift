@@ -16,6 +16,8 @@ struct GuessView: View {
             return "4.square.fill"
         } else if guess.score == 3 {
             return "3.square"
+        } else if guess.score == 2 {
+            return "2.square"
         } else {
             return "square"
         }
