@@ -95,6 +95,12 @@
     "GuessSelection" : {
       "comment" : "button: guess selection",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Submit"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -106,6 +112,12 @@
     "GuessTopRow" : {
       "comment" : "button guess top row",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Submit Top Row"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",

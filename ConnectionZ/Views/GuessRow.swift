@@ -37,7 +37,7 @@ struct GuessViewPreview : View {
     var body: some View {
         
         let guess: Guess =
-            Guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]), score: numberCorrect)
+            Guess(words: Set(["HE", "SHE", "THEY", "THEM"]), score: numberCorrect)
         
         GuessRow(i: 1, guess: guess)
     }

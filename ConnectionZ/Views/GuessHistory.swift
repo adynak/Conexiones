@@ -15,7 +15,7 @@ struct GuessHistory: View {
             Grid(alignment: .leading) {
                 ForEach(Array(guesses.enumerated()), id: \.offset) {
                     i, guess in
-                    GuessView(i: i, guess: guess)
+                    GuessRow(i: i, guess: guess)
                 }
             }.padding()
         }
