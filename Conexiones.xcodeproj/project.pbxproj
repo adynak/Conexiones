@@ -23,6 +23,7 @@
 		51D1B2F42B0E8FE00033BD25 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D1B2F32B0E8FE00033BD25 /* Dates.swift */; };
 		51D1B2F82B0F04E40033BD25 /* GameGroupingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D1B2F72B0F04E40033BD25 /* GameGroupingView.swift */; };
 		51E549D32BA660B300A43D10 /* ConnectionZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E549D22BA660B300A43D10 /* ConnectionZTests.swift */; };
+		92AFDCE12C6FCFA600A39901 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 92AFDCE02C6FCFA600A39901 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		51D1B2F72B0F04E40033BD25 /* GameGroupingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGroupingView.swift; sourceTree = "<group>"; };
 		51E549D02BA660B300A43D10 /* ConnectionZTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectionZTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51E549D22BA660B300A43D10 /* ConnectionZTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionZTests.swift; sourceTree = "<group>"; };
+		92AFDCE02C6FCFA600A39901 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				512C382E2AFCA51F0072D104 /* Info.plist */,
 				512C382B2AFCA51F0072D104 /* Preview Content */,
 				5136EE682B1EEF71004BFCAC /* Color.swift */,
+				92AFDCE02C6FCFA600A39901 /* Localizable.xcstrings */,
 			);
 			path = ConnectionZ;
 			sourceTree = "<group>";
@@ -191,13 +194,14 @@
 					};
 				};
 			};
-			buildConfigurationList = 512C381A2AFCA51E0072D104 /* Build configuration list for PBXProject "ConnectionZ" */;
+			buildConfigurationList = 512C381A2AFCA51E0072D104 /* Build configuration list for PBXProject "Conexiones" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 512C38162AFCA51E0072D104;
 			packageReferences = (
@@ -220,6 +224,7 @@
 			files = (
 				512C382D2AFCA51F0072D104 /* Preview Assets.xcassets in Resources */,
 				512C38292AFCA51F0072D104 /* Assets.xcassets in Resources */,
+				92AFDCE12C6FCFA600A39901 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +334,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = ConnectionZ;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -384,6 +390,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = ConnectionZ;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};
@@ -510,7 +517,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		512C381A2AFCA51E0072D104 /* Build configuration list for PBXProject "ConnectionZ" */ = {
+		512C381A2AFCA51E0072D104 /* Build configuration list for PBXProject "Conexiones" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				512C382F2AFCA51F0072D104 /* Debug */,

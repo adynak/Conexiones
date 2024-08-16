@@ -1,7 +1,172 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@ (%lld)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ (%2$lld)"
+          }
+        }
+      }
+    },
+    "Archive" : {
+      "comment" : "archive section title",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Archivo"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
+          }
+        }
+      }
+    },
+    "Complete!" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Completo!"
+          }
+        }
+      }
+    },
+    "ConnectionZ" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conexiones"
+          }
+        }
+      }
+    },
+    "Copy Results" : {
 
+    },
+    "Create four groups of four!" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Crea cuatro grupos de cuatro!"
+          }
+        }
+      }
+    },
+    "Current" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actual"
+          }
+        }
+      }
+    },
+    "Deselect All" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar todo"
+          }
+        }
+      }
+    },
+    "Guesses" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conjeturas"
+          }
+        }
+      }
+    },
+    "GuessSelection" : {
+      "comment" : "button: guess selection",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entregar"
+          }
+        }
+      }
+    },
+    "GuessTopRow" : {
+      "comment" : "button guess top row",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviar fila superior"
+          }
+        }
+      }
+    },
+    "Hoist" : {
+
+    },
+    "Puzzle" : {
+      "comment" : "label Puzzle",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Juego"
+          }
+        }
+      }
+    },
+    "Reset Game" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jugar de nuevo"
+          }
+        }
+      }
+    },
+    "Resetting will delete this game's history." : {
+
+    },
+    "Select a game" : {
+
+    },
+    "Today's Game" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El juego de hoy"
+          }
+        }
+      }
+    },
+    "Yesterday's Game" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El juego de ayer"
+          }
+        }
+      }
+    }
   },
   "version" : "1.0"
 }
