@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GuessView: View {
+struct GuessRow: View {
     let i: Int
     let guess: Guess
     
@@ -30,6 +30,31 @@ struct GuessView: View {
     }
 }
 
-//#Preview {
-//    GuessView(i: 1, guess: <#Guess#>)
-//}
+struct GuessViewPreview : View {
+    
+    var numberCorrect: Int
+    
+    var body: some View {
+        
+        let guess: Guess =
+            Guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]), score: numberCorrect)
+        
+        GuessRow(i: 1, guess: guess)
+    }
+}
+
+#Preview("1") {
+    GuessViewPreview(numberCorrect: 1)
+}
+
+#Preview("2") {
+    GuessViewPreview(numberCorrect: 2)
+}
+
+#Preview("3") {
+    GuessViewPreview(numberCorrect: 3)
+}
+
+#Preview("4") {
+    GuessViewPreview(numberCorrect: 4)
+}
