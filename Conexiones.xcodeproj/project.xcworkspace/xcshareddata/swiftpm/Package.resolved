@@ -1,4 +1,5 @@
 {
+  "originHash" : "124d6e8f73749f32eb22934dbfd80fb8dda299ab82d6ec5b1d48430e953a6c1c",
   "pins" : [
     {
       "identity" : "drops",
@@ -10,5 +11,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

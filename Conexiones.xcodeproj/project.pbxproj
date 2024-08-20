@@ -22,7 +22,6 @@
 		51D1B2F22B0E8B4B0033BD25 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D1B2F12B0E8B4B0033BD25 /* GameData.swift */; };
 		51D1B2F42B0E8FE00033BD25 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D1B2F32B0E8FE00033BD25 /* Dates.swift */; };
 		51D1B2F82B0F04E40033BD25 /* GameGroupingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D1B2F72B0F04E40033BD25 /* GameGroupingView.swift */; };
-		51E549D32BA660B300A43D10 /* ConnectionZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E549D22BA660B300A43D10 /* ConnectionZTests.swift */; };
 		9272DCBA2C723250004DB460 /* ResizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9272DCB92C723250004DB460 /* ResizedImage.swift */; };
 		9272DCBC2C7239E8004DB460 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9272DCBB2C7239E8004DB460 /* NavigationBar.swift */; };
 		92AFDCE12C6FCFA600A39901 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 92AFDCE02C6FCFA600A39901 /* Localizable.xcstrings */; };
@@ -44,7 +43,7 @@
 
 /* Begin PBXFileReference section */
 		511E55322B05DB7C003743F5 /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clipboard.swift; sourceTree = "<group>"; };
-		512C381F2AFCA51E0072D104 /* ConnectionZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectionZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		512C381F2AFCA51E0072D104 /* Conexiones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conexiones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		512C38222AFCA51E0072D104 /* ConnectionZApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionZApp.swift; sourceTree = "<group>"; };
 		512C38242AFCA51E0072D104 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		512C38282AFCA51F0072D104 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,7 +59,6 @@
 		51D1B2F32B0E8FE00033BD25 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 		51D1B2F72B0F04E40033BD25 /* GameGroupingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGroupingView.swift; sourceTree = "<group>"; };
 		51E549D02BA660B300A43D10 /* ConnectionZTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectionZTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		51E549D22BA660B300A43D10 /* ConnectionZTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionZTests.swift; sourceTree = "<group>"; };
 		9272DCB92C723250004DB460 /* ResizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizedImage.swift; sourceTree = "<group>"; };
 		9272DCBB2C7239E8004DB460 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		92AFDCE02C6FCFA600A39901 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -92,8 +90,7 @@
 		512C38162AFCA51E0072D104 = {
 			isa = PBXGroup;
 			children = (
-				512C38212AFCA51E0072D104 /* ConnectionZ */,
-				51E549D12BA660B300A43D10 /* ConnectionZTests */,
+				512C38212AFCA51E0072D104 /* Connections */,
 				512C38202AFCA51E0072D104 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,13 +98,13 @@
 		512C38202AFCA51E0072D104 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				512C381F2AFCA51E0072D104 /* ConnectionZ.app */,
+				512C381F2AFCA51E0072D104 /* Conexiones.app */,
 				51E549D02BA660B300A43D10 /* ConnectionZTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		512C38212AFCA51E0072D104 /* ConnectionZ */ = {
+		512C38212AFCA51E0072D104 /* Connections */ = {
 			isa = PBXGroup;
 			children = (
 				511E55322B05DB7C003743F5 /* Clipboard.swift */,
@@ -128,7 +125,7 @@
 				92AFDCEA2C6FEA5400A39901 /* ViewModifiers */,
 				92AFDCE22C6FDC9900A39901 /* Views */,
 			);
-			path = ConnectionZ;
+			path = Connections;
 			sourceTree = "<group>";
 		};
 		512C382B2AFCA51F0072D104 /* Preview Content */ = {
@@ -137,14 +134,6 @@
 				512C382C2AFCA51F0072D104 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		51E549D12BA660B300A43D10 /* ConnectionZTests */ = {
-			isa = PBXGroup;
-			children = (
-				51E549D22BA660B300A43D10 /* ConnectionZTests.swift */,
-			);
-			path = ConnectionZTests;
 			sourceTree = "<group>";
 		};
 		9272DCB82C72323D004DB460 /* SupportingViews */ = {
@@ -187,9 +176,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		512C381E2AFCA51E0072D104 /* ConnectionZ */ = {
+		512C381E2AFCA51E0072D104 /* Conexiones */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 512C38312AFCA51F0072D104 /* Build configuration list for PBXNativeTarget "ConnectionZ" */;
+			buildConfigurationList = 512C38312AFCA51F0072D104 /* Build configuration list for PBXNativeTarget "Conexiones" */;
 			buildPhases = (
 				512C381B2AFCA51E0072D104 /* Sources */,
 				512C381C2AFCA51E0072D104 /* Frameworks */,
@@ -199,12 +188,12 @@
 			);
 			dependencies = (
 			);
-			name = ConnectionZ;
+			name = Conexiones;
 			packageProductDependencies = (
 				518048E52B8BFD7C003D3117 /* Drops */,
 			);
 			productName = DraggableConnections;
-			productReference = 512C381F2AFCA51E0072D104 /* ConnectionZ.app */;
+			productReference = 512C381F2AFCA51E0072D104 /* Conexiones.app */;
 			productType = "com.apple.product-type.application";
 		};
 		51E549CF2BA660B300A43D10 /* ConnectionZTests */ = {
@@ -261,7 +250,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				512C381E2AFCA51E0072D104 /* ConnectionZ */,
+				512C381E2AFCA51E0072D104 /* Conexiones */,
 				51E549CF2BA660B300A43D10 /* ConnectionZTests */,
 			);
 		};
@@ -317,7 +306,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51E549D32BA660B300A43D10 /* ConnectionZTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +314,7 @@
 /* Begin PBXTargetDependency section */
 		51E549D52BA660B300A43D10 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 512C381E2AFCA51E0072D104 /* ConnectionZ */;
+			target = 512C381E2AFCA51E0072D104 /* Conexiones */;
 			targetProxy = 51E549D42BA660B300A43D10 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -460,17 +448,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = ConnectionZ/ConnectionZ.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Connections/Connections.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"ConnectionZ/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Connections/Preview Content\"";
 				DEVELOPMENT_TEAM = H738MGD6WZ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ConnectionZ/Info.plist;
+				INFOPLIST_FILE = Connections/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -486,7 +474,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bebopbeluga.ConnectionZ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.conexiones;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
@@ -503,17 +491,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = ConnectionZ/ConnectionZ.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Connections/Connections.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"ConnectionZ/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Connections/Preview Content\"";
 				DEVELOPMENT_TEAM = H738MGD6WZ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ConnectionZ/Info.plist;
+				INFOPLIST_FILE = Connections/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -529,7 +517,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bebopbeluga.ConnectionZ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.conexiones;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
@@ -592,7 +580,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		512C38312AFCA51F0072D104 /* Build configuration list for PBXNativeTarget "ConnectionZ" */ = {
+		512C38312AFCA51F0072D104 /* Build configuration list for PBXNativeTarget "Conexiones" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				512C38322AFCA51F0072D104 /* Debug */,
