@@ -62,7 +62,7 @@ enum GuessResult {
     }
     
     convenience init(from gameData: GameData, on date: String) {
-        let words = gameData.startingGroups.flatMap {$0}
+        let words = gameData.startingGroups.flatMap {$0}.shuffled()
         let groups = gameData.groups.map { (groupName, groupData) in
             return Group(name: groupName, level: groupData.level, words: Set(groupData.members))
         }
@@ -76,9 +76,7 @@ enum GuessResult {
     
     var name: String {
         let puzzleLabel = NSLocalizedString("Puzzle",comment: "label Puzzle")
-
-        
-        return "\(puzzleLabel) #\(Game.puzzleNumber(for: Date(iso8601:self.date)))"
+        return "\(puzzleLabel) #\(self.id)"
     }
     
     var foundGroups: [Group] {

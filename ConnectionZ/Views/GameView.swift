@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Drops
 
-extension String: Identifiable {
+extension String: @retroactive Identifiable {
     public typealias ID = Int
     public var id: Int {
         return hash
@@ -121,6 +121,9 @@ struct GameView: View {
     }
     
     var body: some View {
+        
+        let gridWords = game.words
+        
         VStack {
             GuessHistory(guesses: game.guesses)
             if game.isComplete {
@@ -131,7 +134,7 @@ struct GameView: View {
             VStack(spacing: 8) {
                 CompletedGroups(groups: game.foundGroups)
                 LazyVGrid(columns: cols, spacing: 8, content: {
-                    ReorderableForEach(items: game.words) { word in
+                    ReorderableForEach(items: gridWords) { word in
                         Tile(word: word, selected: isSelected(word: word), selectAction: {
                             select(word: word)
                         })
@@ -148,33 +151,29 @@ struct GameView: View {
                     Spacer()
                     Button("Reset Game") {
                         shouldShowConfirmationDialog = true
-                    }.buttonStyle(.bordered)
-                        .confirmationDialog(
-                            "Resetting will delete this game's history.",
-                            isPresented: $shouldShowConfirmationDialog
-                        ) {
-                            Button("Reset Game", role: .destructive) {
-                                game.reset()
-                            }
-                            .keyboardShortcut(.defaultAction)
-                            Button("Cancel", role: .cancel, action: {})
-                                .keyboardShortcut(.cancelAction)
+                    }
+                    .buttonStyle(ConnectionsButtonStyle(fgColor: "textDark", bgColor: "tasted"))
+                    .confirmationDialog(
+                        "Resetting will delete this game's history.",
+                        isPresented: $shouldShowConfirmationDialog
+                    ) {
+                        Button("Reset Game", role: .destructive) {
+                            game.reset()
                         }
+                        .keyboardShortcut(.defaultAction)
+                        Button("Cancel", role: .cancel, action: {})
+                            .keyboardShortcut(.cancelAction)
+                    }
                     Spacer()
                 } else {
                     Spacer()
                     Button("Deselect All") {
                         selected.removeAll()
-                    }.buttonStyle(.bordered)
-                    //                    Spacer()
-                    //                    Button("Hoist") {
-                    //                        withAnimation {
-                    //                            game.hoist(words: selected)
-                    //                        }
-                    //                        withAnimation {
-                    //                            selected.removeAll()
-                    //                        }
-                    //                    }.buttonStyle(.bordered)
+                    }
+                    .buttonStyle(ConnectionsButtonStyle(fgColor: "textDarkLight", bgColor: "edit"))
+                    .buttonBorderShape(.capsule)
+                    .controlSize(.large)
+                    
                     Spacer()
                     Button(guessButtonText) {
                         withAnimation {
@@ -193,25 +192,26 @@ struct GameView: View {
                                 break
                             }
                         }
-                    }.buttonStyle(.bordered)
+                    }
+                    .buttonStyle(ConnectionsButtonStyle(fgColor: "textDark", bgColor: "tasted"))
+                    // always enables for the time being
+                    .disabled(selected.count == 4 ? false : false)
                     Spacer()
                 }
             }
             .padding(.top)
         }
-        .padding()
+        .padding(EdgeInsets(top: -50, leading: 5, bottom: 0, trailing: 5))
     }
 }
 
 #Preview {
     let gameData = GameData(json: "{\"id\":151,\"groups\":{\"DOCTORS’ ORDERS\":{\"level\":0,\"members\":[\"DIET\",\"EXERCISE\",\"FRESH AIR\",\"SLEEP\"]},\"EMAIL ACTIONS\":{\"level\":1,\"members\":[\"COMPOSE\",\"FORWARD\",\"REPLY ALL\",\"SEND\"]},\"PODCASTS\":{\"level\":2,\"members\":[\"RADIOLAB\",\"SERIAL\",\"UP FIRST\",\"WTF\"]},\"___ COMEDY\":{\"level\":3,\"members\":[\"BLACK\",\"DIVINE\",\"PROP\",\"SKETCH\"]}},\"startingGroups\":[[\"COMPOSE\",\"DIVINE\",\"EXERCISE\",\"SEND\"],[\"FRESH AIR\",\"FORWARD\",\"SERIAL\",\"SKETCH\"],[\"WTF\",\"PROP\",\"UP FIRST\",\"DIET\"],[\"BLACK\",\"RADIOLAB\",\"SLEEP\",\"REPLY ALL\"]]}")
     let game = Game(from: gameData, on: "2023-09-09")
-      game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]))
-      game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "REPLY ALL"]))
-      game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "SERIAL"]))
-      game.guess(words: Set(["FORWARD", "COMPOSE", "REPLY ALL", "SEND"]))
-//      game.guess(words: Set(["DIVINE", "PROP", "BLACK", "SKETCH"]))
-//      game.guess(words: Set(["EXERCISE", "FRESH AIR", "DIET", "SLEEP"]))
+    let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]))
+    let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "REPLY ALL"]))
+    let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "SERIAL"]))
+    let _ = game.guess(words: Set(["FORWARD", "COMPOSE", "REPLY ALL", "SEND"]))
     return GameView(game: game)
-//        .frame(width: 300, height: 600)
+    //        .frame(width: 300, height: 600)
 }

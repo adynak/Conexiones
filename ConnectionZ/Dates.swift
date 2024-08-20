@@ -30,12 +30,12 @@ extension Date {
     return dateFormatter.string(from: self)
   }
   
-  init(iso8601: String) {
-    let formatter = ISO8601DateFormatter()
-    formatter.timeZone = .autoupdatingCurrent
-    formatter.formatOptions = [.withFullDate]
-    self = formatter.date(from: iso8601)!
-  }
+//  init(iso8601: String) {
+//    let formatter = ISO8601DateFormatter()
+//    formatter.timeZone = .autoupdatingCurrent
+//    formatter.formatOptions = [.withFullDate]
+//    self = formatter.date(from: iso8601)!
+//  }
 }
 
 struct DateSequence: Sequence {
@@ -76,6 +76,7 @@ extension Game {
   }
   
   var isPublished: Bool {
-    return Date(iso8601: self.date) <= Date()
+      return  true
+//    return Date(iso8601: self.date) <= Date()
   }
 }

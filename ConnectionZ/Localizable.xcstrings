@@ -1,23 +1,19 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%@ (%lld)" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@ (%2$lld)"
-          }
-        }
-      }
-    },
     "Archive" : {
       "comment" : "archive section title",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puzzles"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Archivo"
+            "value" : "Rompecabezas"
           }
         }
       }
@@ -38,6 +34,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¡Completo!"
+          }
+        }
+      }
+    },
+    "Connections" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conexiones"
           }
         }
       }
@@ -63,6 +69,7 @@
       }
     },
     "Current" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -126,6 +133,9 @@
         }
       }
     },
+    "Hello, World!" : {
+
+    },
     "Puzzle" : {
       "comment" : "label Puzzle",
       "localizations" : {
@@ -136,6 +146,9 @@
           }
         }
       }
+    },
+    "Puzzle #%@" : {
+
     },
     "Reset Game" : {
       "localizations" : {
@@ -154,6 +167,7 @@
 
     },
     "Today's Game" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -164,6 +178,7 @@
       }
     },
     "Yesterday's Game" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
