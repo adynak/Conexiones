@@ -23,14 +23,20 @@ private func createModelContainer() -> ModelContainer {
 struct ConnectionZApp: App {
     let sharedModelContainer: ModelContainer
     
+    @State var languageSettings = LanguageSetting()
+    
+    
+    
+    
     init() {
         self.sharedModelContainer = createModelContainer()
-        
     }
     
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(languageSettings)
+                .environment(\.locale, languageSettings.locale)
         }
         .modelContainer(sharedModelContainer)
     }

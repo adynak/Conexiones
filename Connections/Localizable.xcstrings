@@ -2,7 +2,14 @@
   "sourceLanguage" : "en",
   "strings" : {
     "%lld" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
     },
     "%lld Incorrect Guesses" : {
       "localizations" : {
@@ -79,7 +86,21 @@
       }
     },
     "Continue" : {
-
+      "comment" : "buttonTitle",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue Playing"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuar jugando"
+          }
+        }
+      }
     },
     "Create four groups of four!" : {
       "localizations" : {
@@ -97,6 +118,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancelar todo"
+          }
+        }
+      }
+    },
+    "Game Complete" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Juego completo"
+          }
+        }
+      }
+    },
+    "Game in Progress" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Juego en progreso"
           }
         }
       }
@@ -165,10 +206,32 @@
     "Puzzle" : {
       "comment" : "label Puzzle",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puzzle"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Juego"
+          }
+        }
+      }
+    },
+    "Puzzle #" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puzzle #"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Juego #"
           }
         }
       }
@@ -184,7 +247,30 @@
       }
     },
     "Puzzle # %lld" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Juego # %lld"
+          }
+        }
+      }
+    },
+    "Puzzles" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puzzles"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rompecabezas"
+          }
+        }
+      }
     },
     "Reset Game" : {
       "localizations" : {
@@ -217,7 +303,24 @@
       }
     },
     "Start Over" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Empezar de nuevo"
+          }
+        }
+      }
+    },
+    "View Solution" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver solución"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

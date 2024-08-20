@@ -8,7 +8,11 @@
 import SwiftUI
 import SwiftData
 
-
+@Observable
+class LanguageSetting {
+    // initialise this from UserDefaults if you like
+    var locale = Locale(identifier: "en")
+}
 
 extension Array where Element: Game {
     func by(date dateMaybe: String?) -> Game? {
@@ -24,14 +28,17 @@ struct ContentView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.dismiss) private var dismiss
     
+    @Environment(LanguageSetting.self) var languageSettings
     
     @SceneStorage("ContentView.selectedGame") private var selectedGame: String?
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Game.date) private var persistedGames: [Game]
-//    private var persistedGames: [Game] = []
+    //    private var persistedGames: [Game] = []
     
     @State var refreshStyle: [Color] =  [Color("tabItemSelected"), Color("tabItemSelected")]
     @State var connectionsTOC: [Puzzles] = []
+    
+    @State var countryCode = "ES"
     
     
     private func downloadSelectedGame() async {
@@ -48,20 +55,20 @@ struct ContentView: View {
             }
         }
     }
-        
+    
     var body: some View {
         
         let archiveSectionTitle = NSLocalizedString("Archive",comment: "archive section title")
         
         NavigationSplitView {
             List(selection: $selectedGame) {
-//                Section(header: Text("Current")) {
-//                    NavigationLink("Today's Game", value: Date().iso8601())
-//                    NavigationLink("Yesterday's Game", value: Date().add(days: -1).iso8601())
-//                }
-//                GameGroupingView(sectionName: "In Progress", dates: persistedGames.filter(\.isInProgress).map(\.date), connectionsTOC: [])
-//                GameGroupingView(sectionName: "Streak Repair", dates: streakRepairDates.map { $0.iso8601() })
-//                GameGroupingView(sectionName: "Completed", dates: persistedGames.filter(\.isComplete).map(\.date).reversed(), connectionsTOC: [])
+                //                Section(header: Text("Current")) {
+                //                    NavigationLink("Today's Game", value: Date().iso8601())
+                //                    NavigationLink("Yesterday's Game", value: Date().add(days: -1).iso8601())
+                //                }
+                //                GameGroupingView(sectionName: "In Progress", dates: persistedGames.filter(\.isInProgress).map(\.date), connectionsTOC: [])
+                //                GameGroupingView(sectionName: "Streak Repair", dates: streakRepairDates.map { $0.iso8601() })
+                //                GameGroupingView(sectionName: "Completed", dates: persistedGames.filter(\.isComplete).map(\.date).reversed(), connectionsTOC: [])
                 GameGroupingView(
                     sectionName: archiveSectionTitle,
                     dates: Array(DateSequence(startDate: Date().snapToDay())).map { $0.iso8601() },
@@ -79,6 +86,19 @@ struct ContentView: View {
                     }
                     .foregroundColor(Color("textDark"))
                 }
+                
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    Text(getFlag(from: countryCode))
+                        .onTapGesture {
+                            languageSettings.locale = Locale(identifier: countryCode)
+                            if countryCode == "ES" {
+                                countryCode = "US"
+                            } else {
+                                countryCode = "ES"
+                            }
+                        }
+                }
+                
                 
             }
         } detail: {
@@ -98,6 +118,17 @@ struct ContentView: View {
                 connectionsTOC = await ConnectionsApi.readTOC() ?? []
             }
         }
+        
     }
+    
+    func getFlag(from countryCode: String) -> String {
+        countryCode
+            .unicodeScalars
+            .map({ 127397 + $0.value })
+            .compactMap(UnicodeScalar.init)
+            .map(String.init)
+            .joined()
+    }
+    
 }
 

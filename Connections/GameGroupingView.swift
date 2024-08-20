@@ -24,7 +24,7 @@ struct GameGroupingView: View {
     
     var body: some View {
         if (!connectionsTOC.isEmpty) {
-            Section(sectionName, isExpanded: $isExpanded) {
+            Section("Puzzles", isExpanded: $isExpanded) {
                 ForEach(connectionsTOC[0].puzzles, id: \.self) { puzzle in
                     NavigationLink("Puzzle # \(puzzle.puzzleID)", value: puzzle.puzzleID)
                 }

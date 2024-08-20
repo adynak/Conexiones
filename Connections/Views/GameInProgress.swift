@@ -10,39 +10,51 @@ import SwiftUI
 struct GameInProgress: View {
     
     @Environment(\.presentationMode) var presentationMode
+    @Environment(LanguageSetting.self) var languageSettings
+    
     
     var game: Game
-
+    
     
     var body: some View {
         
         let gameComplete = game.guesses.filter({$0.score == 4}).count == 4
-        
-        let alertTitle = gameComplete ? "Game Complete" : "Game In Progress"
-        
-        let viewOrContinue = gameComplete ? "View Solution" : "Continue"
-        
+    
         GeometryReader{ geo in
             let containerWidth = geo.size.width
             
             VStack{
+                HStack (spacing: 2){
+                    Text("Puzzle #")
+                    Text(verbatim: "\(game.id)")
+                }
+                .foregroundColor(Color("textDark"))
                 
-                Text(verbatim: "Puzzle # \(game.id)")
-                    .foregroundColor(Color("textDark"))
-                
-                Text(alertTitle)
-                    .foregroundColor(Color("textDark"))
+                HStack{
+                    if gameComplete {
+                        Text("Game Complete")
+                    } else {
+                        Text("Game in Progress")
+                    }
+                }
+                .foregroundColor(Color("textDark"))
                 
                 VStack(spacing: 5) {
                     
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
                     }) {
-                        Text(viewOrContinue)
-                            .frame(width: containerWidth * 1.0, height: 40)
-                            .foregroundColor(Color("textLight"))
-                            .background(Color("mainColor"))
-                            .cornerRadius(8)
+                        HStack{
+                            if gameComplete {
+                                Text("View Solution")
+                            } else {
+                                Text("Continue")
+                            }
+                        }
+                        .frame(width: containerWidth * 1.0, height: 40)
+                        .foregroundColor(Color("textLight"))
+                        .background(Color("mainColor"))
+                        .cornerRadius(8)
                     }
                     
                     Button(action: {
@@ -70,7 +82,16 @@ struct GameInProgress: View {
     }
 }
 
-#Preview {
+#Preview("EN"){
     let game = Game(id: 1000, date: "1000", words: [], groups: [])
     GameInProgress(game: game)
+        .environment(\.locale, Locale(identifier: "EN"))
 }
+
+#Preview("ES"){
+    let game = Game(id: 1000, date: "1000", words: [], groups: [])
+    GameInProgress(game: game)
+        .environment(\.locale, Locale(identifier: "ES"))
+}
+
+

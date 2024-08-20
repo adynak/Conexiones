@@ -96,6 +96,9 @@ struct GameView: View {
     @State var shouldShowConfirmationDialog = false;
     @State var gameInProgress: Bool = false
     
+    @Environment(LanguageSetting.self) var languageSettings
+
+    
     let cols = [
         GridItem(.flexible(), spacing: 8),
         GridItem(.flexible(), spacing: 8),
@@ -116,21 +119,14 @@ struct GameView: View {
     func isSelected(word: String) -> Bool {
         return selected.contains(word)
     }
-    
-    var guessButtonText: String {
-        let guessSelection = NSLocalizedString("GuessSelection",comment: "button: guess selection")
-        let guessTopRow = NSLocalizedString("GuessTopRow",comment: "button guess top row")
         
-        return selected.count == 4 ? guessSelection : guessTopRow
-    }
-    
     var body: some View {
         
         let gridWords = game.words
         
         NavigationStack {
             VStack {
-                if game.guesses.filter({$0.score == 4}).count < 4 && game.guesses.count != 0 {
+                if game.guesses.filter({$0.score != 4}).count > 0 {
                     GuessHistory(guesses: game.guesses)
                         .padding(EdgeInsets(top: 00, leading: 5, bottom: 20, trailing: 5))
                 }
@@ -183,12 +179,9 @@ struct GameView: View {
                         .controlSize(.large)
                         
                         Spacer()
-                        Button(guessButtonText) {
+                        Button(selected.count == 4 ? "GuessSelection" : "GuessTopRow") {
                             withAnimation {
-                                let guessResult =
-                                selected.count == 4 ?
-                                game.guess(words: selected) :
-                                game.guess(row: 0..<4)
+                                let guessResult = selected.count == 4 ? game.guess(words: selected) : game.guess(row: 0..<4)
                                 switch guessResult {
                                 case .alreadyGuessed:
                                     Toast.alreadyGuessed()
