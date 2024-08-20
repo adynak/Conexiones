@@ -23,14 +23,6 @@ struct GameGroupingView: View {
     }
     
     var body: some View {
-//        if (!dates.isEmpty) {
-//            Section(sectionName, isExpanded: $isExpanded) {
-//                ForEach(dates, id: \.self) { dateStr in
-//                    let date = Date(iso8601: dateStr)
-//                    NavigationLink("\(date.humanReadableDate()) (\(Game.puzzleNumber(for: date)))", value: date)
-//                }
-//            }
-//        }
         if (!connectionsTOC.isEmpty) {
             Section(sectionName, isExpanded: $isExpanded) {
                 ForEach(connectionsTOC[0].puzzles, id: \.self) { puzzle in

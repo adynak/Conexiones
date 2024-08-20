@@ -23,7 +23,6 @@
 		51D1B2F42B0E8FE00033BD25 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D1B2F32B0E8FE00033BD25 /* Dates.swift */; };
 		51D1B2F82B0F04E40033BD25 /* GameGroupingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D1B2F72B0F04E40033BD25 /* GameGroupingView.swift */; };
 		9272DCBA2C723250004DB460 /* ResizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9272DCB92C723250004DB460 /* ResizedImage.swift */; };
-		9272DCBC2C7239E8004DB460 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9272DCBB2C7239E8004DB460 /* NavigationBar.swift */; };
 		92AFDCE12C6FCFA600A39901 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 92AFDCE02C6FCFA600A39901 /* Localizable.xcstrings */; };
 		92AFDCE42C6FDCB600A39901 /* GuessRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFDCE32C6FDCB600A39901 /* GuessRow.swift */; };
 		92AFDCE62C6FDD4000A39901 /* GuessHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFDCE52C6FDD4000A39901 /* GuessHistory.swift */; };
@@ -60,7 +59,6 @@
 		51D1B2F72B0F04E40033BD25 /* GameGroupingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGroupingView.swift; sourceTree = "<group>"; };
 		51E549D02BA660B300A43D10 /* ConnectionZTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectionZTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9272DCB92C723250004DB460 /* ResizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizedImage.swift; sourceTree = "<group>"; };
-		9272DCBB2C7239E8004DB460 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		92AFDCE02C6FCFA600A39901 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		92AFDCE32C6FDCB600A39901 /* GuessRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessRow.swift; sourceTree = "<group>"; };
 		92AFDCE52C6FDD4000A39901 /* GuessHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessHistory.swift; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 				5154EAC72AFFECAD007C24B2 /* GameView.swift */,
 				92AFDCE52C6FDD4000A39901 /* GuessHistory.swift */,
 				92AFDCE32C6FDCB600A39901 /* GuessRow.swift */,
-				9272DCBB2C7239E8004DB460 /* NavigationBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -282,7 +279,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9272DCBC2C7239E8004DB460 /* NavigationBar.swift in Sources */,
 				5154EACC2B00A63B007C24B2 /* DragAndDrop.swift in Sources */,
 				514644D82B8BFF1D007523B8 /* Toast.swift in Sources */,
 				51D1B2F82B0F04E40033BD25 /* GameGroupingView.swift in Sources */,

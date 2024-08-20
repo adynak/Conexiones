@@ -124,84 +124,106 @@ struct GameView: View {
         
         let gridWords = game.words
         
-        VStack {
-            GuessHistory(guesses: game.guesses)
-            if game.isComplete {
-                Text("Complete!").font(.title2)
-            } else {
-                Text("Create four groups of four!").font(.title2)
-            }
-            VStack(spacing: 8) {
-                CompletedGroups(groups: game.foundGroups)
-                LazyVGrid(columns: cols, spacing: 8, content: {
-                    ReorderableForEach(items: gridWords) { word in
-                        Tile(word: word, selected: isSelected(word: word), selectAction: {
-                            select(word: word)
-                        })
-                    } moveAction: { from, to in
-                        game.words.move(fromOffsets: from, toOffset: to)
-                    }
-                })
-            }
-            .frame(minWidth: 300, maxWidth: 500, minHeight: 300, maxHeight: 500)
-            .aspectRatio(1, contentMode: .fit)
-            .layoutPriority(1)
-            HStack {
+        NavigationStack {
+            VStack {
+                GuessHistory(guesses: game.guesses)
+                    .padding(EdgeInsets(top: 00, leading: 5, bottom: 20, trailing: 5))
+
                 if game.isComplete {
-                    Spacer()
-                    Button("Reset Game") {
-                        shouldShowConfirmationDialog = true
-                    }
-                    .buttonStyle(ConnectionsButtonStyle(fgColor: "textDark", bgColor: "tasted"))
-                    .confirmationDialog(
-                        "Resetting will delete this game's history.",
-                        isPresented: $shouldShowConfirmationDialog
-                    ) {
-                        Button("Reset Game", role: .destructive) {
-                            game.reset()
-                        }
-                        .keyboardShortcut(.defaultAction)
-                        Button("Cancel", role: .cancel, action: {})
-                            .keyboardShortcut(.cancelAction)
-                    }
-                    Spacer()
+                    Text("Complete!").font(.title2)
                 } else {
+                    Text("Create four groups of four!").font(.title2)
+                }
+                VStack(spacing: 8) {
+                    CompletedGroups(groups: game.foundGroups)
+                    LazyVGrid(columns: cols, spacing: 8, content: {
+                        ReorderableForEach(items: gridWords) { word in
+                            Tile(word: word, selected: isSelected(word: word), selectAction: {
+                                select(word: word)
+                            })
+                        } moveAction: { from, to in
+                            game.words.move(fromOffsets: from, toOffset: to)
+                        }
+                    })
+                }
+                .frame(minWidth: 300, maxWidth: 500, minHeight: 300, maxHeight: 500)
+                .aspectRatio(1, contentMode: .fit)
+                .layoutPriority(1)
+                HStack {
                     Spacer()
-                    Button("Deselect All") {
-                        selected.removeAll()
-                    }
-                    .buttonStyle(ConnectionsButtonStyle(fgColor: "textDarkLight", bgColor: "edit"))
-                    .buttonBorderShape(.capsule)
-                    .controlSize(.large)
-                    
-                    Spacer()
-                    Button(guessButtonText) {
-                        withAnimation {
-                            let guessResult =
-                            selected.count == 4 ?
-                            game.guess(words: selected) :
-                            game.guess(row: 0..<4)
-                            switch guessResult {
-                            case .alreadyGuessed:
-                                Toast.alreadyGuessed()
-                            case .oneAway:
-                                Toast.oneAway()
-                            case .correct:
-                                selected.removeAll()
-                            case .incorrect:
-                                break
+
+                    if game.isComplete {
+                        Button("Reset Game") {
+                            shouldShowConfirmationDialog = true
+                        }
+                        .buttonStyle(ConnectionsButtonStyle(fgColor: "textDark", bgColor: "tasted"))
+                        .confirmationDialog(
+                            "Resetting will delete this game's history.",
+                            isPresented: $shouldShowConfirmationDialog
+                        ) {
+                            Button("Reset Game", role: .destructive) {
+                                game.reset()
+                            }
+                            .keyboardShortcut(.defaultAction)
+                            Button("Cancel", role: .cancel, action: {})
+                                .keyboardShortcut(.cancelAction)
+                        }
+                        Spacer()
+                    } else {
+                        Button("Deselect All") {
+                            selected.removeAll()
+                        }
+                        .buttonStyle(ConnectionsButtonStyle(fgColor: "textDarkLight", bgColor: "edit"))
+                        .buttonBorderShape(.capsule)
+                        .controlSize(.large)
+                        
+                        Spacer()
+                        Button(guessButtonText) {
+                            withAnimation {
+                                let guessResult =
+                                selected.count == 4 ?
+                                game.guess(words: selected) :
+                                game.guess(row: 0..<4)
+                                switch guessResult {
+                                case .alreadyGuessed:
+                                    Toast.alreadyGuessed()
+                                case .oneAway:
+                                    Toast.oneAway()
+                                case .correct:
+                                    selected.removeAll()
+                                case .incorrect:
+                                    break
+                                }
                             }
                         }
+                        .buttonStyle(ConnectionsButtonStyle(fgColor: "textDark", bgColor: "tasted"))
+                        // always enables for the time being
+                        .disabled(selected.count == 4 ? false : false)
+                        Spacer()
                     }
-                    .buttonStyle(ConnectionsButtonStyle(fgColor: "textDark", bgColor: "tasted"))
-                    // always enables for the time being
-                    .disabled(selected.count == 4 ? false : false)
-                    Spacer()
+                }
+                
+                .padding(EdgeInsets(top: 50, leading: 5, bottom: 0, trailing: 5))
+            }
+            .padding(EdgeInsets(top: -20, leading: 10, bottom: 0, trailing: 10))
+
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItemGroup(placement: .principal) {
+                    VStack{
+                        Text(game.name)
+                    }
+                    .foregroundColor(Color("textLight"))
                 }
             }
-            .padding(.top)
+                                .toolbarColorScheme(.light, for: .navigationBar)
+                                .toolbarBackground(
+                                    Color("mainColor"),
+                                    for: .navigationBar)
+                                .toolbarBackground(.visible, for: .navigationBar)
+
+
         }
-        .padding(EdgeInsets(top: -50, leading: 5, bottom: 0, trailing: 5))
     }
 }
 

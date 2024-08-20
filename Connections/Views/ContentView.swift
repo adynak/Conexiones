@@ -73,12 +73,12 @@ struct ContentView: View {
         
         NavigationSplitView {
             List(selection: $selectedDate) {
-                //                Section(header: Text("Current")) {
-                //                    NavigationLink("Today's Game", value: Date().iso8601())
-                //                    NavigationLink("Yesterday's Game", value: Date().add(days: -1).iso8601())
-                //                }
+//                Section(header: Text("Current")) {
+//                    NavigationLink("Today's Game", value: Date().iso8601())
+//                    NavigationLink("Yesterday's Game", value: Date().add(days: -1).iso8601())
+//                }
 //                GameGroupingView(sectionName: "In Progress", dates: persistedGames.filter(\.isInProgress).map(\.date), connectionsTOC: [])
-                //                GameGroupingView(sectionName: "Streak Repair", dates: streakRepairDates.map { $0.iso8601() })
+//                GameGroupingView(sectionName: "Streak Repair", dates: streakRepairDates.map { $0.iso8601() })
 //                GameGroupingView(sectionName: "Completed", dates: persistedGames.filter(\.isComplete).map(\.date).reversed(), connectionsTOC: [])
                 GameGroupingView(
                     sectionName: archiveSectionTitle,
@@ -87,6 +87,7 @@ struct ContentView: View {
                     connectionsTOC: connectionsTOC
                 )
             }
+            .listStyle(InsetGroupedListStyle())
             .navigationTitle("Connections")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -115,36 +116,6 @@ struct ContentView: View {
         } detail: {
             if let game = persistedGames.by(date: selectedDate) {
                 GameView(game: game)
-                    .navigationTitle(game.name)
-#if os(iOS)
-                    .navigationBarTitleDisplayMode(.inline)
-                    .navigationBarBackButtonHidden(false)
-                    .toolbar {
-                        ToolbarItemGroup(placement: .principal) {
-                            VStack{
-                                Text(game.name)
-                            }
-                            .foregroundColor(Color("textLight"))
-                        }
-                        //                        ToolbarItemGroup(placement: .topBarLeading) {
-                        //                            Button {
-                        //                                withAnimation(.easeInOut(duration: 2)) {
-                        //                                    self.presentationMode.wrappedValue.dismiss()
-                        //
-                        //                                    dismiss()
-                        //                                }
-                        //                            } label: {
-                        //                                ResizedImage(imageName: "chevron.left", size: 16)
-                        //                            }
-                        //                            .padding(.leading, 10)
-                        //                        }
-                    }
-                    .toolbarColorScheme(.light, for: .navigationBar)
-                    .toolbarBackground(
-                        Color("mainColor"),
-                        for: .navigationBar)
-                    .toolbarBackground(.visible, for: .navigationBar)
-#endif
             } else {
                 Text("Select a game")
             }

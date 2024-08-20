@@ -48,33 +48,12 @@
         }
       }
     },
-    "ConnectionZ" : {
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conexiones"
-          }
-        }
-      }
-    },
     "Create four groups of four!" : {
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "¡Crea cuatro grupos de cuatro!"
-          }
-        }
-      }
-    },
-    "Current" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actual"
           }
         }
       }
@@ -133,9 +112,6 @@
         }
       }
     },
-    "Hello, World!" : {
-
-    },
     "Puzzle" : {
       "comment" : "label Puzzle",
       "localizations" : {
@@ -152,7 +128,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Acertijo # %@"
+            "value" : "Juego # %@"
           }
         }
       }
@@ -168,29 +144,21 @@
       }
     },
     "Resetting will delete this game's history." : {
-
-    },
-    "Select a game" : {
-
-    },
-    "Today's Game" : {
-      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El juego de hoy"
+            "value" : "Reiniciar eliminará el historial de este juego."
           }
         }
       }
     },
-    "Yesterday's Game" : {
-      "extractionState" : "stale",
+    "Select a game" : {
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El juego de ayer"
+            "value" : "Seleccione un juego"
           }
         }
       }

@@ -76,7 +76,7 @@ enum GuessResult {
     
     var name: String {
         let puzzleLabel = NSLocalizedString("Puzzle",comment: "label Puzzle")
-        return "\(puzzleLabel) #\(self.id)"
+        return "\(puzzleLabel) # \(self.id)"
     }
     
     var foundGroups: [Group] {
@@ -104,7 +104,7 @@ enum GuessResult {
                 self.groups.first { $0.words.contains(word) }!.emoji()
             }.joined(separator: "")
         }.joined(separator: "\n")
-        return ["ConnectionZ", self.name, emojis].joined(separator: "\n")
+        return ["Connections", self.name, emojis].joined(separator: "\n")
     }
     
     func guess(words candidates: Set<String>) -> GuessResult {

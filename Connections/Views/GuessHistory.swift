@@ -10,17 +10,21 @@ import SwiftUI
 struct GuessHistory: View {
     var guesses: [Guess]
     var body: some View {
-        Text("Guesses").font(.title3)
+//        Text("Guesses").font(.title3)
         ScrollView {
+            Text("Guesses").font(.title3)
+                .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
+
             Grid(alignment: .leading) {
                 ForEach(Array(guesses.enumerated()), id: \.offset) {
                     i, guess in
                     GuessRow(i: i, guess: guess)
                 }
-            }.padding()
+            }
+//            .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
         }
         .defaultScrollAnchor(.top)
-        .frame(maxWidth: 500, maxHeight: 130)
+        .frame(maxWidth: 500, maxHeight: 150)
         .background(
             RoundedRectangle(
                 cornerSize: CGSize(width: 10, height: 10)
