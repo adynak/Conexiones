@@ -1,6 +1,36 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%lld" : {
+
+    },
+    "%lld Incorrect Guesses" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld conjeturas incorrectas"
+          }
+        }
+      }
+    },
+    "AlreadyGuessed" : {
+      "comment" : "already guessed toast",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Already Guessed"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Ya lo adiviné!"
+          }
+        }
+      }
+    },
     "Archive" : {
       "comment" : "archive section title",
       "localizations" : {
@@ -48,6 +78,9 @@
         }
       }
     },
+    "Continue" : {
+
+    },
     "Create four groups of four!" : {
       "localizations" : {
         "es" : {
@@ -68,12 +101,12 @@
         }
       }
     },
-    "Guesses" : {
+    "Games" : {
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Conjeturas"
+            "value" : "Juegos"
           }
         }
       }
@@ -112,6 +145,23 @@
         }
       }
     },
+    "OneAway" : {
+      "comment" : "one away toast",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "One Away"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Uno es incorrecto!"
+          }
+        }
+      }
+    },
     "Puzzle" : {
       "comment" : "label Puzzle",
       "localizations" : {
@@ -132,6 +182,9 @@
           }
         }
       }
+    },
+    "Puzzle # %lld" : {
+
     },
     "Reset Game" : {
       "localizations" : {
@@ -162,6 +215,9 @@
           }
         }
       }
+    },
+    "Start Over" : {
+
     }
   },
   "version" : "1.0"

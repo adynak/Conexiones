@@ -8,6 +8,8 @@
 import SwiftUI
 import SwiftData
 
+
+
 extension Array where Element: Game {
     func by(date dateMaybe: String?) -> Game? {
         guard let date = dateMaybe else {
@@ -23,16 +25,17 @@ struct ContentView: View {
     @Environment(\.dismiss) private var dismiss
     
     
-    @SceneStorage("ContentView.selectedDate") private var selectedDate: String?
+    @SceneStorage("ContentView.selectedGame") private var selectedGame: String?
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Game.date) private var persistedGames: [Game]
+//    private var persistedGames: [Game] = []
     
     @State var refreshStyle: [Color] =  [Color("tabItemSelected"), Color("tabItemSelected")]
     @State var connectionsTOC: [Puzzles] = []
     
     
     private func downloadSelectedGame() async {
-        if let date = selectedDate {
+        if let date = selectedGame {
             if persistedGames.by(date: date) == nil  {
                 print("Fetching puzzle \(date)")
                 let response = await ConnectionsApi.fetchBy(date: date)
@@ -45,34 +48,13 @@ struct ContentView: View {
             }
         }
     }
-    
-    //    var streakRepairDates: [Date] {
-    //        guard let firstCompletedGame = persistedGames.first(where: \.isComplete) else {
-    //            return []
-    //        }
-    //
-    //        let firstDate = Date(iso8601: firstCompletedGame.date)
-    //        var dates = [Date]()
-    //        for date in DateSequence(startDate: Date().snapToDay()) {
-    //            if (date <= firstDate) {
-    //                break;
-    //            }
-    //            if let persistedGame = persistedGames.by(date: date.iso8601()) {
-    //                if (persistedGame.isComplete) {
-    //                    continue;
-    //                }
-    //            }
-    //            dates.append(date)
-    //        }
-    //        return dates.reversed()
-    //    }
-    
+        
     var body: some View {
         
         let archiveSectionTitle = NSLocalizedString("Archive",comment: "archive section title")
         
         NavigationSplitView {
-            List(selection: $selectedDate) {
+            List(selection: $selectedGame) {
 //                Section(header: Text("Current")) {
 //                    NavigationLink("Today's Game", value: Date().iso8601())
 //                    NavigationLink("Yesterday's Game", value: Date().add(days: -1).iso8601())
@@ -88,39 +70,25 @@ struct ContentView: View {
                 )
             }
             .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Connections")
+            .navigationTitle("Games")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .principal) {
                     VStack{
                         Text("Connections")
                     }
-                    .foregroundColor(Color("textLight"))
-                }
-                
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button {
-//                        showLocationFilter.toggle()
-//                        persistedGames.removeAll()
-                    } label: {
-                        ResizedImage(imageName: "clock.arrow.2.circlepath", size: 20, foregroundColor: Color("textLight"))
-                    }
+                    .foregroundColor(Color("textDark"))
                 }
                 
             }
-            .toolbarColorScheme(.light, for: .navigationBar)
-            .toolbarBackground(
-                Color("mainColor"),
-                for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
         } detail: {
-            if let game = persistedGames.by(date: selectedDate) {
+            if let game = persistedGames.by(date: selectedGame) {
                 GameView(game: game)
             } else {
                 Text("Select a game")
             }
         }
-        .onChange(of: selectedDate, initial: true) {
+        .onChange(of: selectedGame, initial: true) {
             Task {
                 await downloadSelectedGame()
             }

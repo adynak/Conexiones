@@ -91,6 +91,11 @@ struct CompletedGroups: View {
 }
 
 struct GameView: View {
+    
+    @State var selected = Set<String>()
+    @State var shouldShowConfirmationDialog = false;
+    @State var gameInProgress: Bool = false
+    
     let cols = [
         GridItem(.flexible(), spacing: 8),
         GridItem(.flexible(), spacing: 8),
@@ -98,8 +103,7 @@ struct GameView: View {
         GridItem(.flexible(), spacing: 8)
     ]
     var game: Game
-    @State var selected = Set<String>()
-    @State var shouldShowConfirmationDialog = false;
+    
     
     func select(word: String) {
         if selected.contains(word) {
@@ -126,9 +130,10 @@ struct GameView: View {
         
         NavigationStack {
             VStack {
-                GuessHistory(guesses: game.guesses)
-                    .padding(EdgeInsets(top: 00, leading: 5, bottom: 20, trailing: 5))
-
+                if game.guesses.filter({$0.score == 4}).count < 4 && game.guesses.count != 0 {
+                    GuessHistory(guesses: game.guesses)
+                        .padding(EdgeInsets(top: 00, leading: 5, bottom: 20, trailing: 5))
+                }
                 if game.isComplete {
                     Text("Complete!").font(.title2)
                 } else {
@@ -151,7 +156,7 @@ struct GameView: View {
                 .layoutPriority(1)
                 HStack {
                     Spacer()
-
+                    
                     if game.isComplete {
                         Button("Reset Game") {
                             shouldShowConfirmationDialog = true
@@ -206,24 +211,29 @@ struct GameView: View {
                 .padding(EdgeInsets(top: 50, leading: 5, bottom: 0, trailing: 5))
             }
             .padding(EdgeInsets(top: -20, leading: 10, bottom: 0, trailing: 10))
-
+            
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .principal) {
                     VStack{
                         Text(game.name)
                     }
-                    .foregroundColor(Color("textLight"))
+                    .foregroundColor(Color("textDark"))
                 }
             }
-                                .toolbarColorScheme(.light, for: .navigationBar)
-                                .toolbarBackground(
-                                    Color("mainColor"),
-                                    for: .navigationBar)
-                                .toolbarBackground(.visible, for: .navigationBar)
-
-
+            .toolbarColorScheme(.light, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
         }
+        .onAppear{
+            if game.guesses.filter({$0.score > 0}).count > 0 {
+                gameInProgress.toggle()
+            }
+        }
+        .sheet(isPresented: $gameInProgress) {
+            GameInProgress(game: game)
+                .padding()
+        }
+
     }
 }
 

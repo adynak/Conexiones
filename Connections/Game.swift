@@ -124,6 +124,7 @@ enum GuessResult {
         }
         
         guesses.append(Guess(words: candidates, score: closestGroup.score(of: candidates)))
+        
         switch score {
         case 4:
             return .correct

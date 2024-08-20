@@ -28,6 +28,7 @@
 		92AFDCE62C6FDD4000A39901 /* GuessHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFDCE52C6FDD4000A39901 /* GuessHistory.swift */; };
 		92AFDCE92C6FE9D000A39901 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92AFDCE82C6FE9D000A39901 /* Colors.xcassets */; };
 		92AFDCEC2C6FEAA900A39901 /* ConnectionsButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFDCEB2C6FEAA900A39901 /* ConnectionsButtonStyle.swift */; };
+		92F9A44E2C7512E400F52AA1 /* GameInProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9A44D2C7512E400F52AA1 /* GameInProgress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		92AFDCE52C6FDD4000A39901 /* GuessHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessHistory.swift; sourceTree = "<group>"; };
 		92AFDCE82C6FE9D000A39901 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		92AFDCEB2C6FEAA900A39901 /* ConnectionsButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsButtonStyle.swift; sourceTree = "<group>"; };
+		92F9A44D2C7512E400F52AA1 /* GameInProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInProgress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				5154EAC72AFFECAD007C24B2 /* GameView.swift */,
 				92AFDCE52C6FDD4000A39901 /* GuessHistory.swift */,
 				92AFDCE32C6FDCB600A39901 /* GuessRow.swift */,
+				92F9A44D2C7512E400F52AA1 /* GameInProgress.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				9272DCBA2C723250004DB460 /* ResizedImage.swift in Sources */,
 				511E55332B05DB7C003743F5 /* Clipboard.swift in Sources */,
 				5136EE692B1EEF71004BFCAC /* Color.swift in Sources */,
+				92F9A44E2C7512E400F52AA1 /* GameInProgress.swift in Sources */,
 				5154EAC62AFF089E007C24B2 /* Game.swift in Sources */,
 				512C38252AFCA51E0072D104 /* ContentView.swift in Sources */,
 				92AFDCEC2C6FEAA900A39901 /* ConnectionsButtonStyle.swift in Sources */,

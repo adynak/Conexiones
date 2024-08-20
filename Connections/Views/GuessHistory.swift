@@ -10,18 +10,22 @@ import SwiftUI
 struct GuessHistory: View {
     var guesses: [Guess]
     var body: some View {
-//        Text("Guesses").font(.title3)
         ScrollView {
-            Text("Guesses").font(.title3)
-                .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
-
+            HStack{
+                Text("\(guesses.filter {$0.score < 4}.count) Incorrect Guesses")
+            }
+            .bold()
+            .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
+            
             Grid(alignment: .leading) {
                 ForEach(Array(guesses.enumerated()), id: \.offset) {
                     i, guess in
-                    GuessRow(i: i, guess: guess)
+                    if guess.score < 4 {
+                        GuessRow(i: i, guess: guess)
+                    }
                 }
             }
-//            .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
+            //            .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
         }
         .defaultScrollAnchor(.top)
         .frame(maxWidth: 500, maxHeight: 150)

@@ -19,7 +19,7 @@ struct GuessRow: View {
         } else if guess.score == 2 {
             return "2.square"
         } else {
-            return "square"
+            return "0.square"
         }
     }
     
