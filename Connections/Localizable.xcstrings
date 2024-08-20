@@ -147,8 +147,15 @@
         }
       }
     },
-    "Puzzle #%@" : {
-
+    "Puzzle # %@" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acertijo # %@"
+          }
+        }
+      }
     },
     "Reset Game" : {
       "localizations" : {

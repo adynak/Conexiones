@@ -34,7 +34,7 @@ struct GameGroupingView: View {
         if (!connectionsTOC.isEmpty) {
             Section(sectionName, isExpanded: $isExpanded) {
                 ForEach(connectionsTOC[0].puzzles, id: \.self) { puzzle in
-                    NavigationLink("Puzzle #\(puzzle.puzzleID)", value: puzzle.puzzleID)
+                    NavigationLink("Puzzle # \(puzzle.puzzleID)", value: puzzle.puzzleID)
                 }
             }
         }
