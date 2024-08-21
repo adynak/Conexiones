@@ -41,28 +41,43 @@ struct GuessHistory: View {
     }
 }
 
-//struct GuessHistoryPreview : View {
-//    
-//    var body: some View {
-//        
-//        let guesses: [Guess] = [
-//            Guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]), score: 1),
-//            Guess(words: Set(["UP", "DOWN", "LEFT", "RIGHT"]), score: 2),
-//            Guess(words: Set(["BLUE", "RED", "GREEN", "WHITE"]), score: 3),
-//            Guess(words: Set(["HOT", "COLD", "FREEZING", "BAKING"]), score: 4)
-//        ]
-//        
-//        GuessHistory(guesses: guesses)
-//    }
-//}
-//
-//#Preview("EN"){
-//    GuessHistoryPreview()
-//        .environment(\.locale, Locale(identifier: "EN"))
-//}
-//
-//#Preview("ES"){
-//    GuessHistoryPreview()
-//        .environment(\.locale, Locale(identifier: "ES"))
-//}
-//
+struct GuessHistoryPreview : View {
+        
+    @State var languageSettings = LanguageSetting()
+    
+    var locale: String
+
+    var body: some View {
+        
+        let guesses: [Guess] = [
+            Guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]), score: 1),
+            Guess(words: Set(["UP", "DOWN", "LEFT", "RIGHT"]), score: 2),
+            Guess(words: Set(["BLUE", "RED", "GREEN", "WHITE"]), score: 3),
+            Guess(words: Set(["HOT", "COLD", "FREEZING", "BAKING"]), score: 4)
+        ]
+        
+        GuessHistory(guesses: guesses)
+            .environment(languageSettings)
+            .environment(\.locale, Locale(identifier: locale))
+
+    }
+}
+
+#Preview("EN"){
+    GuessHistoryPreview(locale: "EN")
+}
+
+#Preview("ES"){
+    GuessHistoryPreview(locale: "ES")
+}
+
+#Preview("Light"){
+    GuessHistoryPreview(locale: "EN")
+        .preferredColorScheme(.light)
+}
+
+#Preview("Dark"){
+    GuessHistoryPreview(locale: "EN")
+        .preferredColorScheme(.dark)
+}
+

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct GuessRow: View {
+    
+    @Environment(LanguageSetting.self) var languageSettings
+
     let i: Int
     let guess: Guess
     
@@ -32,14 +35,17 @@ struct GuessRow: View {
 
 struct GuessViewPreview : View {
     
+    @State var languageSettings = LanguageSetting()
+
     var numberCorrect: Int
     
     var body: some View {
-        
         let guess: Guess =
             Guess(words: Set(["HE", "SHE", "THEY", "THEM"]), score: numberCorrect)
         
         GuessRow(i: 1, guess: guess)
+            .environment(languageSettings)
+            .environment(\.locale, languageSettings.locale)
     }
 }
 
