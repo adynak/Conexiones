@@ -97,7 +97,6 @@ struct GameView: View {
     @State var gameInProgress: Bool = false
     
     @Environment(LanguageSetting.self) var languageSettings
-
     
     let cols = [
         GridItem(.flexible(), spacing: 8),
@@ -212,7 +211,7 @@ struct GameView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .principal) {
                     VStack{
-                        Text(game.name)
+                        Text(game.puzzleName)
                     }
                     .foregroundColor(Color("textDark"))
                 }
@@ -233,14 +232,43 @@ struct GameView: View {
     }
 }
 
-//#Preview {
-//    let gameData = GameData(json: "{\"id\":151,\"groups\":{\"DOCTORS’ ORDERS\":{\"level\":0,\"members\":[\"DIET\",\"EXERCISE\",\"FRESH AIR\",\"SLEEP\"]},\"EMAIL ACTIONS\":{\"level\":1,\"members\":[\"COMPOSE\",\"FORWARD\",\"REPLY ALL\",\"SEND\"]},\"PODCASTS\":{\"level\":2,\"members\":[\"RADIOLAB\",\"SERIAL\",\"UP FIRST\",\"WTF\"]},\"___ COMEDY\":{\"level\":3,\"members\":[\"BLACK\",\"DIVINE\",\"PROP\",\"SKETCH\"]}},\"startingGroups\":[[\"COMPOSE\",\"DIVINE\",\"EXERCISE\",\"SEND\"],[\"FRESH AIR\",\"FORWARD\",\"SERIAL\",\"SKETCH\"],[\"WTF\",\"PROP\",\"UP FIRST\",\"DIET\"],[\"BLACK\",\"RADIOLAB\",\"SLEEP\",\"REPLY ALL\"]]}")
-//    let game = Game(from: gameData, on: "2023-09-09")
-//    let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]))
-//    let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "REPLY ALL"]))
-//    let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "SERIAL"]))
-//    let _ = game.guess(words: Set(["FORWARD", "COMPOSE", "REPLY ALL", "SEND"]))
-//    return GameView(game: game)
-////        .environment(\.locale, Locale(identifier: "EN"))
-//    //        .frame(width: 300, height: 600)
-//}
+
+struct GameViewPreview: View {
+    
+    @State var languageSettings = LanguageSetting()
+    
+    var locale: String
+
+    var body: some View {
+        
+        let gameData = GameData(json: "{\"id\":151,\"puzzleName\":\"Unidad 6.1\",\"groups\":{\"DOCTORS’ ORDERS\":{\"level\":0,\"members\":[\"DIET\",\"EXERCISE\",\"FRESH AIR\",\"SLEEP\"]},\"EMAIL ACTIONS\":{\"level\":1,\"members\":[\"COMPOSE\",\"FORWARD\",\"REPLY ALL\",\"SEND\"]},\"PODCASTS\":{\"level\":2,\"members\":[\"RADIOLAB\",\"SERIAL\",\"UP FIRST\",\"WTF\"]},\"___ COMEDY\":{\"level\":3,\"members\":[\"BLACK\",\"DIVINE\",\"PROP\",\"SKETCH\"]}},\"startingGroups\":[[\"COMPOSE\",\"DIVINE\",\"EXERCISE\",\"SEND\"],[\"FRESH AIR\",\"FORWARD\",\"SERIAL\",\"SKETCH\"],[\"WTF\",\"PROP\",\"UP FIRST\",\"DIET\"],[\"BLACK\",\"RADIOLAB\",\"SLEEP\",\"REPLY ALL\"]]}")
+
+        let game = Game(from: gameData, on: "2023-09-09")
+//        let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]))
+//        let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "REPLY ALL"]))
+//        let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "SERIAL"]))
+//        let _ = game.guess(words: Set(["FORWARD", "COMPOSE", "REPLY ALL", "SEND"]))
+//
+        GameView(game: game)
+            .environment(languageSettings)
+            .environment(\.locale, Locale(identifier: locale))
+    }
+}
+
+#Preview("EN"){
+    GameViewPreview(locale: "EN")
+}
+
+#Preview("ES"){
+    GameViewPreview(locale: "ES")
+}
+
+#Preview("Light"){
+    GameViewPreview(locale: "EN")
+        .preferredColorScheme(.light)
+}
+
+#Preview("Dark"){
+    GameViewPreview(locale: "ES")
+        .preferredColorScheme(.dark)
+}
