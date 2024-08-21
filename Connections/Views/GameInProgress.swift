@@ -10,11 +10,9 @@ import SwiftUI
 struct GameInProgress: View {
     
     @Environment(\.presentationMode) var presentationMode
-//    @Environment(LanguageSetting.self) var languageSettings
     
     var game: Game
-    
-    
+        
     var body: some View {
         
         let gameComplete = game.guesses.filter({$0.score == 4}).count == 4
@@ -23,9 +21,9 @@ struct GameInProgress: View {
             let containerWidth = geo.size.width
             
             VStack{
-                HStack (spacing: 2){
-                    Text("Puzzle #")
-                    Text(verbatim: "\(game.id)")
+                HStack (spacing: 5){
+                    Text("Puzzle")
+                    Text(verbatim: "\(game.date)")
                 }
                 .foregroundColor(Color("textDarkLight"))
                 
@@ -81,28 +79,33 @@ struct GameInProgress: View {
     }
 }
 
+struct GameInProgressPreviews : View {
+    
+    var locale: String
+    
+    var body: some View {
+        let game = Game(id: 1000, date: "Unidad 6.1", words: [], groups: [])
+        
+        GameInProgress(game: game)
+            .environment(\.locale, Locale(identifier: locale))
+        
+    }
+}
+
 #Preview("EN"){
-    let game = Game(id: 1000, date: "10009", words: [], groups: [])
-    GameInProgress(game: game)
-        .environment(\.locale, Locale(identifier: "EN"))
+    GameInProgressPreviews(locale: "EN")
 }
 
 #Preview("ES"){
-    let game = Game(id: 1000, date: "1000", words: [], groups: [])
-    GameInProgress(game: game)
-        .environment(\.locale, Locale(identifier: "ES"))
+    GameInProgressPreviews(locale: "ES")
 }
 
 #Preview("Light"){
-    let game = Game(id: 1000, date: "1000", words: [], groups: [])
-    GameInProgress(game: game)
+    GameInProgressPreviews(locale: "EN")
         .preferredColorScheme(.light)
-        .environment(\.locale, Locale(identifier: "EN"))
 }
 
 #Preview("Dark"){
-    let game = Game(id: 1000, date: "1000", words: [], groups: [])
-    GameInProgress(game: game)
+    GameInProgressPreviews(locale: "EN")
         .preferredColorScheme(.dark)
-        .environment(\.locale, Locale(identifier: "EN"))
 }
