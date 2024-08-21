@@ -10,8 +10,7 @@ import SwiftUI
 struct GameInProgress: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @Environment(LanguageSetting.self) var languageSettings
-    
+//    @Environment(LanguageSetting.self) var languageSettings
     
     var game: Game
     
@@ -19,7 +18,7 @@ struct GameInProgress: View {
     var body: some View {
         
         let gameComplete = game.guesses.filter({$0.score == 4}).count == 4
-    
+        
         GeometryReader{ geo in
             let containerWidth = geo.size.width
             
@@ -83,7 +82,7 @@ struct GameInProgress: View {
 }
 
 #Preview("EN"){
-    let game = Game(id: 1000, date: "1000", words: [], groups: [])
+    let game = Game(id: 1000, date: "10009", words: [], groups: [])
     GameInProgress(game: game)
         .environment(\.locale, Locale(identifier: "EN"))
 }
@@ -94,4 +93,16 @@ struct GameInProgress: View {
         .environment(\.locale, Locale(identifier: "ES"))
 }
 
+#Preview("Light"){
+    let game = Game(id: 1000, date: "1000", words: [], groups: [])
+    GameInProgress(game: game)
+        .preferredColorScheme(.light)
+        .environment(\.locale, Locale(identifier: "EN"))
+}
 
+#Preview("Dark"){
+    let game = Game(id: 1000, date: "1000", words: [], groups: [])
+    GameInProgress(game: game)
+        .preferredColorScheme(.dark)
+        .environment(\.locale, Locale(identifier: "EN"))
+}
