@@ -23,7 +23,7 @@ struct GameInProgress: View {
             VStack{
                 HStack (spacing: 5){
                     Text("Puzzle")
-                    Text(verbatim: "\(game.date)")
+                    Text(verbatim: "\(game.puzzleName)")
                 }
                 .foregroundColor(Color("textDarkLight"))
                 
@@ -84,7 +84,7 @@ struct GameInProgressPreviews : View {
     var locale: String
     
     var body: some View {
-        let game = Game(id: 1000, date: "Unidad 6.1", words: [], groups: [])
+        let game = Game(id: 1000, date: "01-01-2024", words: [], groups: [], puzzleName: "Unidad 6.1")
         
         GameInProgress(game: game)
             .environment(\.locale, Locale(identifier: locale))

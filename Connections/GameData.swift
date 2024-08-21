@@ -14,6 +14,7 @@ struct GroupData: Codable {
 
 struct GameData: Codable {
     let id: Int
+    let puzzleName: String
     let groups: Dictionary<String, GroupData>
     let startingGroups: [[String]]
     
