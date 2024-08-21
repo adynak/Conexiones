@@ -83,8 +83,11 @@ struct ContentView: View {
                 ToolbarItemGroup(placement: .principal) {
                     VStack{
                         Text("Connections")
+                            .font(.headline)
+                        Text("Choose a Game")
+                            .font(.footnote)
                     }
-                    .foregroundColor(Color("textDark"))
+                    .foregroundColor(Color("textDarkLight"))
                 }
                 
                 ToolbarItemGroup(placement: .topBarTrailing) {

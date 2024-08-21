@@ -28,7 +28,7 @@ struct GameInProgress: View {
                     Text("Puzzle #")
                     Text(verbatim: "\(game.id)")
                 }
-                .foregroundColor(Color("textDark"))
+                .foregroundColor(Color("textDarkLight"))
                 
                 HStack{
                     if gameComplete {

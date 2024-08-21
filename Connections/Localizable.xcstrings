@@ -65,6 +65,16 @@
         }
       }
     },
+    "Choose a Game" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige un juego"
+          }
+        }
+      }
+    },
     "Complete!" : {
       "localizations" : {
         "es" : {
@@ -118,6 +128,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancelar todo"
+          }
+        }
+      }
+    },
+    "Drag to Reorder" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrastre para reordenar"
           }
         }
       }

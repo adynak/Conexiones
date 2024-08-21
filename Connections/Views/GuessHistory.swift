@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct GuessHistory: View {
+    
+    @Environment(LanguageSetting.self) var languageSettings
+
     var guesses: [Guess]
     var body: some View {
         ScrollView {
@@ -38,28 +41,28 @@ struct GuessHistory: View {
     }
 }
 
-struct GuessHistoryPreview : View {
-    
-    var body: some View {
-        
-        let guesses: [Guess] = [
-            Guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]), score: 1),
-            Guess(words: Set(["UP", "DOWN", "LEFT", "RIGHT"]), score: 2),
-            Guess(words: Set(["BLUE", "RED", "GREEN", "WHITE"]), score: 3),
-            Guess(words: Set(["HOT", "COLD", "FREEZING", "BAKING"]), score: 4)
-        ]
-        
-        GuessHistory(guesses: guesses)
-    }
-}
-
-#Preview("EN"){
-    GuessHistoryPreview()
-        .environment(\.locale, Locale(identifier: "EN"))
-}
-
-#Preview("ES"){
-    GuessHistoryPreview()
-        .environment(\.locale, Locale(identifier: "ES"))
-}
-
+//struct GuessHistoryPreview : View {
+//    
+//    var body: some View {
+//        
+//        let guesses: [Guess] = [
+//            Guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]), score: 1),
+//            Guess(words: Set(["UP", "DOWN", "LEFT", "RIGHT"]), score: 2),
+//            Guess(words: Set(["BLUE", "RED", "GREEN", "WHITE"]), score: 3),
+//            Guess(words: Set(["HOT", "COLD", "FREEZING", "BAKING"]), score: 4)
+//        ]
+//        
+//        GuessHistory(guesses: guesses)
+//    }
+//}
+//
+//#Preview("EN"){
+//    GuessHistoryPreview()
+//        .environment(\.locale, Locale(identifier: "EN"))
+//}
+//
+//#Preview("ES"){
+//    GuessHistoryPreview()
+//        .environment(\.locale, Locale(identifier: "ES"))
+//}
+//

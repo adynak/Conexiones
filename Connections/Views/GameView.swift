@@ -133,7 +133,10 @@ struct GameView: View {
                 if game.isComplete {
                     Text("Complete!").font(.title2)
                 } else {
-                    Text("Create four groups of four!").font(.title2)
+                    VStack{
+                        Text("Create four groups of four!").font(.title2)
+                        Text("Drag to Reorder").font(.callout)
+                    }
                 }
                 VStack(spacing: 8) {
                     CompletedGroups(groups: game.foundGroups)
@@ -174,7 +177,7 @@ struct GameView: View {
                         Button("Deselect All") {
                             selected.removeAll()
                         }
-                        .buttonStyle(ConnectionsButtonStyle(fgColor: "textDarkLight", bgColor: "edit"))
+                        .buttonStyle(ConnectionsButtonStyle(fgColor: "textDark", bgColor: "edit"))
                         .buttonBorderShape(.capsule)
                         .controlSize(.large)
                         
@@ -230,13 +233,14 @@ struct GameView: View {
     }
 }
 
-#Preview {
-    let gameData = GameData(json: "{\"id\":151,\"groups\":{\"DOCTORS’ ORDERS\":{\"level\":0,\"members\":[\"DIET\",\"EXERCISE\",\"FRESH AIR\",\"SLEEP\"]},\"EMAIL ACTIONS\":{\"level\":1,\"members\":[\"COMPOSE\",\"FORWARD\",\"REPLY ALL\",\"SEND\"]},\"PODCASTS\":{\"level\":2,\"members\":[\"RADIOLAB\",\"SERIAL\",\"UP FIRST\",\"WTF\"]},\"___ COMEDY\":{\"level\":3,\"members\":[\"BLACK\",\"DIVINE\",\"PROP\",\"SKETCH\"]}},\"startingGroups\":[[\"COMPOSE\",\"DIVINE\",\"EXERCISE\",\"SEND\"],[\"FRESH AIR\",\"FORWARD\",\"SERIAL\",\"SKETCH\"],[\"WTF\",\"PROP\",\"UP FIRST\",\"DIET\"],[\"BLACK\",\"RADIOLAB\",\"SLEEP\",\"REPLY ALL\"]]}")
-    let game = Game(from: gameData, on: "2023-09-09")
-    let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]))
-    let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "REPLY ALL"]))
-    let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "SERIAL"]))
-    let _ = game.guess(words: Set(["FORWARD", "COMPOSE", "REPLY ALL", "SEND"]))
-    return GameView(game: game)
-    //        .frame(width: 300, height: 600)
-}
+//#Preview {
+//    let gameData = GameData(json: "{\"id\":151,\"groups\":{\"DOCTORS’ ORDERS\":{\"level\":0,\"members\":[\"DIET\",\"EXERCISE\",\"FRESH AIR\",\"SLEEP\"]},\"EMAIL ACTIONS\":{\"level\":1,\"members\":[\"COMPOSE\",\"FORWARD\",\"REPLY ALL\",\"SEND\"]},\"PODCASTS\":{\"level\":2,\"members\":[\"RADIOLAB\",\"SERIAL\",\"UP FIRST\",\"WTF\"]},\"___ COMEDY\":{\"level\":3,\"members\":[\"BLACK\",\"DIVINE\",\"PROP\",\"SKETCH\"]}},\"startingGroups\":[[\"COMPOSE\",\"DIVINE\",\"EXERCISE\",\"SEND\"],[\"FRESH AIR\",\"FORWARD\",\"SERIAL\",\"SKETCH\"],[\"WTF\",\"PROP\",\"UP FIRST\",\"DIET\"],[\"BLACK\",\"RADIOLAB\",\"SLEEP\",\"REPLY ALL\"]]}")
+//    let game = Game(from: gameData, on: "2023-09-09")
+//    let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]))
+//    let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "REPLY ALL"]))
+//    let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "SERIAL"]))
+//    let _ = game.guess(words: Set(["FORWARD", "COMPOSE", "REPLY ALL", "SEND"]))
+//    return GameView(game: game)
+////        .environment(\.locale, Locale(identifier: "EN"))
+//    //        .frame(width: 300, height: 600)
+//}
