@@ -47,7 +47,7 @@ struct ContentView: View {
                 print("Fetching puzzle \(date)")
                 let response = await ConnectionsApi.fetchBy(date: date)
                 if let gameData = response {
-                    print("Inserting puzzle \(gameData.id) - \(date)")
+                    print("Inserting puzzle \(gameData.id) - \(gameData.puzzleName)")
 //                    print(gameData)
                     modelContext.insert(Game(from: gameData, on: date))
                     try? modelContext.save()
