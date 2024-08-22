@@ -23,13 +23,18 @@ struct GameGroupingView: View {
     }
     
     var body: some View {
+                
         if (!connectionsTOC.isEmpty) {
+            // nah, just sort the TOC by hand...
+            // let puzzles = connectionsTOC[0].puzzles.sorted{$0.puzzleName < $1.puzzleName}
+            let puzzles = connectionsTOC[0].puzzles
+            
             Section("Puzzles", isExpanded: $isExpanded) {
-                ForEach(connectionsTOC[0].puzzles, id: \.self) { puzzle in
-                    NavigationLink("Puzzle # \(puzzle.puzzleID)", value: puzzle.puzzleID)
+                ForEach(puzzles, id: \.self) { puzzle in
+                    NavigationLink("Puzzle # \(puzzle.puzzleName)", value: puzzle.puzzleID)
                 }
             }
         }
-
+        
     }
 }

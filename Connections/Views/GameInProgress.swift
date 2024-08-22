@@ -23,7 +23,7 @@ struct GameInProgress: View {
             VStack{
                 HStack (spacing: 5){
                     Text("Puzzle")
-                    Text(verbatim: "\(game.puzzleName)")
+                    Text(verbatim: "\(game.puzzleName!)")
                 }
                 .foregroundColor(Color("textDarkLight"))
                 

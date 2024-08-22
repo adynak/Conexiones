@@ -241,6 +241,7 @@
       }
     },
     "Puzzle #" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

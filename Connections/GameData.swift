@@ -43,4 +43,5 @@ struct Puzzles: Codable, Identifiable, Hashable {
 struct PuzzleID: Codable, Identifiable, Hashable {
     var id: Int
     var puzzleID: String
+    var puzzleName: String
 }

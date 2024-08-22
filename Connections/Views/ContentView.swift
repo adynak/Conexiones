@@ -11,7 +11,7 @@ import SwiftData
 @Observable
 class LanguageSetting {
     // initialise this from UserDefaults if you like
-    var locale = Locale(identifier: "en")
+    var locale = Locale(identifier: "es")
 }
 
 extension Array where Element: Game {
@@ -48,7 +48,7 @@ struct ContentView: View {
                 let response = await ConnectionsApi.fetchBy(date: date)
                 if let gameData = response {
                     print("Inserting puzzle \(gameData.id) - \(date)")
-                    print(gameData)
+//                    print(gameData)
                     modelContext.insert(Game(from: gameData, on: date))
                     try? modelContext.save()
                 }
@@ -93,16 +93,14 @@ struct ContentView: View {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Text(getFlag(from: countryCode))
                         .onTapGesture {
-                            languageSettings.locale = Locale(identifier: countryCode)
                             if countryCode == "ES" {
                                 countryCode = "US"
                             } else {
                                 countryCode = "ES"
                             }
+                            languageSettings.locale = Locale(identifier: countryCode)
                         }
                 }
-                
-                
             }
         } detail: {
             if let game = persistedGames.by(date: selectedGame) {
@@ -119,6 +117,8 @@ struct ContentView: View {
         .onAppear{
             Task {
                 connectionsTOC = await ConnectionsApi.readTOC() ?? []
+                let zz = "123"
+//                let zz = connectionsTOC.puzzles.sorted(by: {$0.puzzleName < $1.puzzleName})
             }
         }
         

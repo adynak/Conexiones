@@ -8,6 +8,9 @@
 import SwiftUI
 import SwiftData
 
+let debugMode = Bundle.main.infoDictionary?["debugMode"] as! Bool
+let localhost = Bundle.main.infoDictionary?["localhost"] as! String
+
 private func createModelContainer() -> ModelContainer {
     let schema = Schema([Game.self])
     let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
@@ -21,13 +24,11 @@ private func createModelContainer() -> ModelContainer {
 
 @main
 struct ConnectionZApp: App {
-    let sharedModelContainer: ModelContainer
     
     @State var languageSettings = LanguageSetting()
-    
-    
-    
-    
+
+    let sharedModelContainer: ModelContainer
+        
     init() {
         self.sharedModelContainer = createModelContainer()
     }

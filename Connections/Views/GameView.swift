@@ -211,7 +211,7 @@ struct GameView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .principal) {
                     VStack{
-                        Text(game.puzzleName)
+                        Text(game.puzzleName!)
                     }
                     .foregroundColor(Color("textDark"))
                 }

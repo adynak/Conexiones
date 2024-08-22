@@ -6,6 +6,8 @@
 	<false/>
 	<key>UIBackgroundModes</key>
 	<array/>
+	<key>debugMode</key>
+	<false/>
 	<key>localhost</key>
 	<string>192.168.12.182</string>
 </dict>
