@@ -48,7 +48,7 @@ struct ContentView: View {
                 let response = await ConnectionsApi.fetchBy(date: date)
                 if let gameData = response {
                     print("Inserting puzzle \(gameData.id) - \(gameData.puzzleName)")
-//                    print(gameData)
+                    //                    print(gameData)
                     modelContext.insert(Game(from: gameData, on: date))
                     try? modelContext.save()
                 }
@@ -59,6 +59,7 @@ struct ContentView: View {
     var body: some View {
         
         let archiveSectionTitle = NSLocalizedString("Archive",comment: "archive section title")
+        
         
         NavigationSplitView {
             List(selection: $selectedGame) {
@@ -91,7 +92,7 @@ struct ContentView: View {
                 }
                 
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    Text(getFlag(from: countryCode))
+                    Text(getFlagIcon(countryCode: countryCode))
                         .onTapGesture {
                             if countryCode == "ES" {
                                 countryCode = "US"
@@ -114,11 +115,11 @@ struct ContentView: View {
                 await downloadSelectedGame()
             }
         }
-        .onAppear{
+        .onAppear{            
             Task {
                 connectionsTOC = await ConnectionsApi.readTOC() ?? []
                 let zz = "123"
-//                let zz = connectionsTOC.puzzles.sorted(by: {$0.puzzleName < $1.puzzleName})
+                //                let zz = connectionsTOC.puzzles.sorted(by: {$0.puzzleName < $1.puzzleName})
             }
         }
         
@@ -131,6 +132,22 @@ struct ContentView: View {
             .compactMap(UnicodeScalar.init)
             .map(String.init)
             .joined()
+    }
+    
+    func getFlagIcon(countryCode:String) -> String {
+        var toggleCountryCode: String = "ES"
+        if countryCode == "ES" {
+            toggleCountryCode = "US"
+        } else {
+            toggleCountryCode = "ES"
+        }
+        
+        let base : UInt32 = 127397
+        var s = ""
+        for v in toggleCountryCode.unicodeScalars {
+            s.unicodeScalars.append(UnicodeScalar(base + v.value)!)
+        }
+        return String(s)
     }
     
 }

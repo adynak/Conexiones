@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 let debugMode = Bundle.main.infoDictionary?["debugMode"] as! Bool
-let localhost = Bundle.main.infoDictionary?["localhost"] as! String
+//let localhost = Bundle.main.infoDictionary?["localhost"] as! String
 
 private func createModelContainer() -> ModelContainer {
     let schema = Schema([Game.self])
