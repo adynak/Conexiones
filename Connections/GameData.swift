@@ -44,4 +44,5 @@ struct PuzzleID: Codable, Identifiable, Hashable {
     var id: Int
     var puzzleID: String
     var puzzleName: String
+    var puzzleName_EN: String?
 }

@@ -33,7 +33,7 @@ struct ContentView: View {
     @SceneStorage("ContentView.selectedGame") private var selectedGame: String?
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Game.date) private var persistedGames: [Game]
-    //    private var persistedGames: [Game] = []
+//        private var persistedGames: [Game] = []
     
     @State var refreshStyle: [Color] =  [Color("tabItemSelected"), Color("tabItemSelected")]
     @State var connectionsTOC: [Puzzles] = []
@@ -58,7 +58,7 @@ struct ContentView: View {
     
     var body: some View {
         
-        let archiveSectionTitle = NSLocalizedString("Archive",comment: "archive section title")
+        let sectionTitle = NSLocalizedString("Puzzles",comment: "section title")
         
         
         NavigationSplitView {
@@ -71,10 +71,11 @@ struct ContentView: View {
                 //                GameGroupingView(sectionName: "Streak Repair", dates: streakRepairDates.map { $0.iso8601() })
                 //                GameGroupingView(sectionName: "Completed", dates: persistedGames.filter(\.isComplete).map(\.date).reversed(), connectionsTOC: [])
                 GameGroupingView(
-                    sectionName: archiveSectionTitle,
+                    sectionName: sectionTitle,
                     dates: Array(DateSequence(startDate: Date().snapToDay())).map { $0.iso8601() },
                     startCollapsed: false,
-                    connectionsTOC: connectionsTOC
+                    connectionsTOC: connectionsTOC,
+                    countryCode: countryCode
                 )
             }
             .listStyle(InsetGroupedListStyle())
@@ -102,6 +103,7 @@ struct ContentView: View {
                             languageSettings.locale = Locale(identifier: countryCode)
                         }
                 }
+                
             }
         } detail: {
             if let game = persistedGames.by(date: selectedGame) {
@@ -118,22 +120,11 @@ struct ContentView: View {
         .onAppear{            
             Task {
                 connectionsTOC = await ConnectionsApi.readTOC() ?? []
-                let zz = "123"
-                //                let zz = connectionsTOC.puzzles.sorted(by: {$0.puzzleName < $1.puzzleName})
             }
         }
         
     }
-    
-    func getFlag(from countryCode: String) -> String {
-        countryCode
-            .unicodeScalars
-            .map({ 127397 + $0.value })
-            .compactMap(UnicodeScalar.init)
-            .map(String.init)
-            .joined()
-    }
-    
+        
     func getFlagIcon(countryCode:String) -> String {
         var toggleCountryCode: String = "ES"
         if countryCode == "ES" {
@@ -143,11 +134,11 @@ struct ContentView: View {
         }
         
         let base : UInt32 = 127397
-        var s = ""
+        var flagIcon = ""
         for v in toggleCountryCode.unicodeScalars {
-            s.unicodeScalars.append(UnicodeScalar(base + v.value)!)
+            flagIcon.unicodeScalars.append(UnicodeScalar(base + v.value)!)
         }
-        return String(s)
+        return String(flagIcon)
     }
     
 }

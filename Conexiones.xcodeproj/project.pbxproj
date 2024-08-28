@@ -24,6 +24,9 @@
 		51D1B2F82B0F04E40033BD25 /* GameGroupingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D1B2F72B0F04E40033BD25 /* GameGroupingView.swift */; };
 		922A99DD2C77C17600614BA1 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 922A99DC2C77C17600614BA1 /* Images */; };
 		922A99DF2C77C64F00614BA1 /* pages.png in Resources */ = {isa = PBXBuildFile; fileRef = 922A99DE2C77C64F00614BA1 /* pages.png */; };
+		92638B782C7FDAC5000F39DA /* GetIPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92638B772C7FDAC5000F39DA /* GetIPAddress.swift */; };
+		92638B7A2C7FE169000F39DA /* CompletedGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92638B792C7FE169000F39DA /* CompletedGroups.swift */; };
+		92638B7C2C7FE1B5000F39DA /* CompletedGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92638B7B2C7FE1B5000F39DA /* CompletedGroup.swift */; };
 		9272DCBA2C723250004DB460 /* ResizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9272DCB92C723250004DB460 /* ResizedImage.swift */; };
 		92AFDCE12C6FCFA600A39901 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 92AFDCE02C6FCFA600A39901 /* Localizable.xcstrings */; };
 		92AFDCE42C6FDCB600A39901 /* GuessRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFDCE32C6FDCB600A39901 /* GuessRow.swift */; };
@@ -63,6 +66,9 @@
 		51E549D02BA660B300A43D10 /* ConnectionZTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectionZTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		922A99DC2C77C17600614BA1 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		922A99DE2C77C64F00614BA1 /* pages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pages.png; sourceTree = "<group>"; };
+		92638B772C7FDAC5000F39DA /* GetIPAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetIPAddress.swift; sourceTree = "<group>"; };
+		92638B792C7FE169000F39DA /* CompletedGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedGroups.swift; sourceTree = "<group>"; };
+		92638B7B2C7FE1B5000F39DA /* CompletedGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedGroup.swift; sourceTree = "<group>"; };
 		9272DCB92C723250004DB460 /* ResizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizedImage.swift; sourceTree = "<group>"; };
 		92AFDCE02C6FCFA600A39901 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		92AFDCE32C6FDCB600A39901 /* GuessRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessRow.swift; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 		512C38212AFCA51E0072D104 /* Connections */ = {
 			isa = PBXGroup;
 			children = (
+				92638B762C7FDA92000F39DA /* Extensions */,
 				511E55322B05DB7C003743F5 /* Clipboard.swift */,
 				5136EE682B1EEF71004BFCAC /* Color.swift */,
 				5154EAC32AFEF65F007C24B2 /* ConnectionsApi.swift */,
@@ -140,6 +147,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		92638B762C7FDA92000F39DA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				92638B772C7FDAC5000F39DA /* GetIPAddress.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9272DCB82C72323D004DB460 /* SupportingViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +171,8 @@
 				92AFDCE52C6FDD4000A39901 /* GuessHistory.swift */,
 				92AFDCE32C6FDCB600A39901 /* GuessRow.swift */,
 				92F9A44D2C7512E400F52AA1 /* GameInProgress.swift */,
+				92638B792C7FE169000F39DA /* CompletedGroups.swift */,
+				92638B7B2C7FE1B5000F39DA /* CompletedGroup.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -292,8 +309,10 @@
 			files = (
 				5154EACC2B00A63B007C24B2 /* DragAndDrop.swift in Sources */,
 				514644D82B8BFF1D007523B8 /* Toast.swift in Sources */,
+				92638B782C7FDAC5000F39DA /* GetIPAddress.swift in Sources */,
 				51D1B2F82B0F04E40033BD25 /* GameGroupingView.swift in Sources */,
 				51D1B2F42B0E8FE00033BD25 /* Dates.swift in Sources */,
+				92638B7C2C7FE1B5000F39DA /* CompletedGroup.swift in Sources */,
 				92AFDCE62C6FDD4000A39901 /* GuessHistory.swift in Sources */,
 				5154EAC42AFEF65F007C24B2 /* ConnectionsApi.swift in Sources */,
 				9272DCBA2C723250004DB460 /* ResizedImage.swift in Sources */,
@@ -307,6 +326,7 @@
 				512C38232AFCA51E0072D104 /* ConnectionZApp.swift in Sources */,
 				51D1B2F22B0E8B4B0033BD25 /* GameData.swift in Sources */,
 				5154EAC82AFFECAD007C24B2 /* GameView.swift in Sources */,
+				92638B7A2C7FE169000F39DA /* CompletedGroups.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,8 +496,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -520,8 +539,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";

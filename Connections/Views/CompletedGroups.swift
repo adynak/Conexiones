@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct CompletedGroups: View {
+    let groups: [Group]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ForEach(groups, id: \.name) { group in
+            CompletedGroup(group: group)
+        }
     }
-}
-
-#Preview {
-    CompletedGroups()
 }

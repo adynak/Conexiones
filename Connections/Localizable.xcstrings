@@ -38,23 +38,6 @@
         }
       }
     },
-    "Archive" : {
-      "comment" : "archive section title",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Puzzles"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rompecabezas"
-          }
-        }
-      }
-    },
     "Cancel" : {
       "localizations" : {
         "es" : {
@@ -240,23 +223,6 @@
         }
       }
     },
-    "Puzzle #" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Puzzle #"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Juego #"
-          }
-        }
-      }
-    },
     "Puzzle # %@" : {
       "localizations" : {
         "es" : {
@@ -278,6 +244,7 @@
       }
     },
     "Puzzles" : {
+      "comment" : "section title",
       "localizations" : {
         "en" : {
           "stringUnit" : {

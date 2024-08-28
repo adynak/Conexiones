@@ -52,44 +52,6 @@ struct Tile: View {
     }
 }
 
-struct CompletedGroup: View {
-    let group: Group
-    
-    var color: Color {
-        switch (group.level) {
-        case 0: return Color(.displayP3, red: 245/256, green: 224/256, blue: 126/256)
-        case 1: return Color(.displayP3, red: 167/256, green: 194/256, blue: 104/256)
-        case 2: return Color(.displayP3, red: 180/256, green: 195/256, blue: 235/256)
-        case 3: return Color(.displayP3, red: 178/256, green: 131/256, blue: 193/256)
-        default: return Color.black
-        }
-    }
-    
-    var body: some View {
-        VStack {
-            Text(group.name).font(.title2).bold().foregroundStyle(.black)
-            Text(group.words.sorted().joined(separator: ", ")).foregroundStyle(.black)
-        }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-        .background(
-            RoundedRectangle(
-                cornerSize: CGSize(
-                    width: 10,
-                    height: 10
-                )
-            ).fill(color))
-    }
-}
-
-struct CompletedGroups: View {
-    let groups: [Group]
-    var body: some View {
-        ForEach(groups, id: \.name) { group in
-            CompletedGroup(group: group)
-        }
-    }
-}
-
 struct GameView: View {
     
     @State var selected = Set<String>()
@@ -125,10 +87,10 @@ struct GameView: View {
         
         NavigationStack {
             VStack {
-                if game.guesses.filter({$0.score != 4}).count > 0 {
-                    GuessHistory(guesses: game.guesses)
-                        .padding(EdgeInsets(top: 00, leading: 5, bottom: 20, trailing: 5))
-                }
+//                if game.guesses.filter({$0.score != 4}).count > 0 {
+//                    GuessHistory(guesses: game.guesses)
+//                        .padding(EdgeInsets(top: 00, leading: 5, bottom: 20, trailing: 5))
+//                }
                 if game.isComplete {
                     Text("Complete!").font(.title2)
                 } else {
@@ -202,10 +164,17 @@ struct GameView: View {
                         Spacer()
                     }
                 }
-                
-                .padding(EdgeInsets(top: 50, leading: 5, bottom: 0, trailing: 5))
+                .padding(EdgeInsets(top: 20, leading: 5, bottom: 20, trailing: 5))
             }
             .padding(EdgeInsets(top: -20, leading: 10, bottom: 0, trailing: 10))
+            
+            VStack{
+                if game.guesses.filter({$0.score != 4}).count > 0 {
+                    GuessHistory(guesses: game.guesses)
+                        .padding(EdgeInsets(top: 00, leading: 5, bottom: 20, trailing: 5))
+                }
+            }
+            .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
             
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -244,7 +213,7 @@ struct GameViewPreview: View {
         let gameData = GameData(json: "{\"id\":151,\"puzzleName\":\"Unidad 6.1\",\"groups\":{\"DOCTORS’ ORDERS\":{\"level\":0,\"members\":[\"DIET\",\"EXERCISE\",\"FRESH AIR\",\"SLEEP\"]},\"EMAIL ACTIONS\":{\"level\":1,\"members\":[\"COMPOSE\",\"FORWARD\",\"REPLY ALL\",\"SEND\"]},\"PODCASTS\":{\"level\":2,\"members\":[\"RADIOLAB\",\"SERIAL\",\"UP FIRST\",\"WTF\"]},\"___ COMEDY\":{\"level\":3,\"members\":[\"BLACK\",\"DIVINE\",\"PROP\",\"SKETCH\"]}},\"startingGroups\":[[\"COMPOSE\",\"DIVINE\",\"EXERCISE\",\"SEND\"],[\"FRESH AIR\",\"FORWARD\",\"SERIAL\",\"SKETCH\"],[\"WTF\",\"PROP\",\"UP FIRST\",\"DIET\"],[\"BLACK\",\"RADIOLAB\",\"SLEEP\",\"REPLY ALL\"]]}")
 
         let game = Game(from: gameData, on: "2023-09-09")
-//        let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]))
+        let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]))
 //        let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "REPLY ALL"]))
 //        let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "SERIAL"]))
 //        let _ = game.guess(words: Set(["FORWARD", "COMPOSE", "REPLY ALL", "SEND"]))

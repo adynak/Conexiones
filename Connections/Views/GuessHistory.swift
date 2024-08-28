@@ -18,7 +18,7 @@ struct GuessHistory: View {
                 Text("\(guesses.filter {$0.score < 4}.count) Incorrect Guesses")
             }
             .bold()
-            .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
+            .padding(EdgeInsets(top: 7, leading: 0, bottom: 0, trailing: 0))
             
             Grid(alignment: .leading) {
                 ForEach(Array(guesses.enumerated()), id: \.offset) {

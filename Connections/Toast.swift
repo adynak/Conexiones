@@ -25,7 +25,9 @@ struct Toast {
         let alreadyGuessed = NSLocalizedString("AlreadyGuessed",comment: "already guessed toast")
         Drops.show(
             Drop(
-                title: alreadyGuessed, icon: UIImage(systemName:"repeat")
+                title: alreadyGuessed, 
+                subtitle: "DUH!",
+                icon: UIImage(systemName:"repeat")
             )
         )
 #endif
@@ -36,7 +38,9 @@ struct Toast {
         let oneAway = NSLocalizedString("OneAway",comment: "one away toast")
         Drops.show(
             Drop(
-                title: oneAway, icon: UIImage(systemName: "3.square")
+                title: oneAway, 
+                subtitle: "So Close...",
+                icon: UIImage(systemName: "repeat.1")
             )
         )
 #endif
