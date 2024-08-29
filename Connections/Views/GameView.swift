@@ -111,9 +111,9 @@ struct GameView: View {
                         }
                     })
                 }
-                .frame(minWidth: 300, maxWidth: 500, minHeight: 300, maxHeight: 500)
-                .aspectRatio(1, contentMode: .fit)
-                .layoutPriority(1)
+//                .frame(minWidth: 300, maxWidth: 500, minHeight: 300, maxHeight: 500)
+//                .aspectRatio(1, contentMode: .fit)
+//                .layoutPriority(1)
                 HStack {
                     Spacer()
                     
@@ -166,7 +166,8 @@ struct GameView: View {
                 }
                 .padding(EdgeInsets(top: 20, leading: 5, bottom: 20, trailing: 5))
             }
-            .padding(EdgeInsets(top: -20, leading: 10, bottom: 0, trailing: 10))
+
+            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
             
             VStack{
                 if game.guesses.filter({$0.score != 4}).count > 0 {
@@ -174,6 +175,8 @@ struct GameView: View {
                         .padding(EdgeInsets(top: 00, leading: 5, bottom: 20, trailing: 5))
                 }
             }
+            .frame(maxWidth: 500, maxHeight: 150)
+
             .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
             
             .navigationBarTitleDisplayMode(.inline)
@@ -213,8 +216,8 @@ struct GameViewPreview: View {
         let gameData = GameData(json: "{\"id\":151,\"puzzleName\":\"Unidad 6.1\",\"groups\":{\"DOCTORS’ ORDERS\":{\"level\":0,\"members\":[\"DIET\",\"EXERCISE\",\"FRESH AIR\",\"SLEEP\"]},\"EMAIL ACTIONS\":{\"level\":1,\"members\":[\"COMPOSE\",\"FORWARD\",\"REPLY ALL\",\"SEND\"]},\"PODCASTS\":{\"level\":2,\"members\":[\"RADIOLAB\",\"SERIAL\",\"UP FIRST\",\"WTF\"]},\"___ COMEDY\":{\"level\":3,\"members\":[\"BLACK\",\"DIVINE\",\"PROP\",\"SKETCH\"]}},\"startingGroups\":[[\"COMPOSE\",\"DIVINE\",\"EXERCISE\",\"SEND\"],[\"FRESH AIR\",\"FORWARD\",\"SERIAL\",\"SKETCH\"],[\"WTF\",\"PROP\",\"UP FIRST\",\"DIET\"],[\"BLACK\",\"RADIOLAB\",\"SLEEP\",\"REPLY ALL\"]]}")
 
         let game = Game(from: gameData, on: "2023-09-09")
-        let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "FORWARD"]))
-//        let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "REPLY ALL"]))
+        let _ = game.guess(words: Set(["DIET", "EXERCISE", "FRESH AIR", "SLEEP"]))
+        let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "REPLY ALL"]))
 //        let _ = game.guess(words: Set(["RADIOLAB", "UP FIRST", "WTF", "SERIAL"]))
 //        let _ = game.guess(words: Set(["FORWARD", "COMPOSE", "REPLY ALL", "SEND"]))
 //

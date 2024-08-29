@@ -72,7 +72,6 @@ enum GuessResult {
             return Group(name: groupName, level: groupData.level, words: Set(groupData.members))
         }
         self.init(id: gameData.id, date: date, words: words, groups: groups, puzzleName: puzzleName)
-        //        self.init(id: gameData.id, date: date, words: words, groups: groups)
         
     }
     

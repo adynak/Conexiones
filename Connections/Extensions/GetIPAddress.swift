@@ -50,6 +50,3 @@ extension UIDevice {
     }
     
 }
-
-// Usage:
-// print(UIDevice.current.getIP())

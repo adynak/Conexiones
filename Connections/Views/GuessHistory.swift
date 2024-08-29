@@ -20,7 +20,8 @@ struct GuessHistory: View {
             .bold()
             .padding(EdgeInsets(top: 7, leading: 0, bottom: 0, trailing: 0))
             
-            Grid(alignment: .leading) {
+//            Grid(alignment: .leading) {
+            VStack(alignment: .leading){
                 ForEach(Array(guesses.enumerated()), id: \.offset) {
                     i, guess in
                     if guess.score < 4 {
@@ -28,10 +29,10 @@ struct GuessHistory: View {
                     }
                 }
             }
-            //            .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
+//                        .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
         }
         .defaultScrollAnchor(.top)
-        .frame(maxWidth: 500, maxHeight: 150)
+        .frame(width: UIScreen.main.bounds.width - 20)
         .background(
             RoundedRectangle(
                 cornerSize: CGSize(width: 10, height: 10)

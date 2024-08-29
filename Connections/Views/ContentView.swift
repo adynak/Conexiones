@@ -42,14 +42,14 @@ struct ContentView: View {
     
     
     private func downloadSelectedGame() async {
-        if let date = selectedGame {
-            if persistedGames.by(date: date) == nil  {
-                print("Fetching puzzle \(date)")
-                let response = await ConnectionsApi.fetchBy(date: date)
+        if let puzzleID = selectedGame {
+            if persistedGames.by(date: puzzleID) == nil  {
+                print("Fetching puzzle \(puzzleID)")
+                let response = await ConnectionsApi.fetchPuzzle(puzzleID: puzzleID)
                 if let gameData = response {
                     print("Inserting puzzle \(gameData.id) - \(gameData.puzzleName)")
                     //                    print(gameData)
-                    modelContext.insert(Game(from: gameData, on: date))
+                    modelContext.insert(Game(from: gameData, on: puzzleID))
                     try? modelContext.save()
                 }
             }

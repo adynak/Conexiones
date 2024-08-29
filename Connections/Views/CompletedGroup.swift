@@ -26,11 +26,13 @@ struct CompletedGroup: View {
                 .font(.callout)
                 .bold()
                 .foregroundStyle(.black)
-            Text(group.words.sorted().joined(separator: ", "))
+            Text(group.words.joined(separator: ", "))
                 .font(.footnote)
                 .foregroundStyle(.black)
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+//        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        .frame(width: UIScreen.main.bounds.width - 20, height: 60)
+//        .padding(20)
         .background(
             RoundedRectangle(
                 cornerSize: CGSize(
@@ -44,7 +46,7 @@ struct CompletedGroup: View {
 
 struct CompletedGroupPreview: View {
     var body: some View {
-        let group = Group(name: "Group Name", level: 1, words: ["word1", "word2", "word3", "word4"])
+        let group = Group(name: "Group Name", level: 1, words: ["word2", "word4", "word1", "word3"])
         CompletedGroup(group: group)
 
     }
